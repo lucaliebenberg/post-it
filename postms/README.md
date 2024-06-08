@@ -86,4 +86,6 @@ To run tests, use the following command:
 python manage.py test
 ```
 
+## Thank you
+
 
