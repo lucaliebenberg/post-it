@@ -81,6 +81,7 @@ Postit is a Django-based web application for creating and managing posts, for th
 
 ## Testing
 To run tests, use the following command:
+
 ```bash
 python manage.py test
 ```
