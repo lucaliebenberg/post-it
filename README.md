@@ -9,7 +9,6 @@ Project state -> In Development.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Features
@@ -78,6 +77,6 @@ Project state -> In Development.
 - **Database:** Default is SQLite. For production, configure the database settings in `postit/settings.py`.
 - **Static files:** Collect static files using `python manage.py collectstatic`.
 
-## Thank you
+## Feel free to contribute and open PR's :)
 
 
