@@ -9,7 +9,6 @@ Project state -> In Development.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
-- [Testing](#testing)
 - [Contributing](#contributing)
 - [License](#license)
 
