@@ -1,6 +1,6 @@
 # Postit
 
-Postit is a Django-based web application for creating and managing posts. Users can create, edit, delete, and view posts.
+Postit is a Django-based web application for creating and managing posts, for those who are wanting to share their services online. Users can create, edit, delete their posts, and view everyones posts.
 
 ## Table of Contents
 - [Features](#features)
@@ -83,3 +83,6 @@ Postit is a Django-based web application for creating and managing posts. Users 
 To run tests, use the following command:
 ```bash
 python manage.py test
+```
+
+
