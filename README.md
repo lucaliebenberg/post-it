@@ -13,9 +13,7 @@ Project state -> In Development.
 - [License](#license)
 
 ## Features
-- User authentication (registration, login, logout)
-- Create, read, update, and delete (CRUD) operations for posts
-- Responsive design
+- Create, read, update, and delete (CRUD) operations for JobPosts
 
 ## Installation
 
