@@ -1,15 +1,25 @@
 from django.db import models
 
 class JobPost(models.Model):
-    author = models.ForeignKey(
+    author = models.CharField(
         "post author",
-        on_delete=models.CASCADE,
-        nul=False,
+        null=False,
         blank=False,
     )
     title = models.CharField(
         "post title",
         max_length=255,
-        nul=False,
+        null=False,
         blank=False,
+    )
+    description = models.CharField(
+        "post description",
+        max_length=255,
+        null=False,
+        blank=False,
+    )
+    created_at = models.DateTimeField(
+        "date posted",
+        editable=False,
+        auto_now=True,
     )
