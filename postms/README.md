@@ -79,13 +79,6 @@ Postit is a Django-based web application for creating and managing posts, for th
 - **Database:** Default is SQLite. For production, configure the database settings in `postit/settings.py`.
 - **Static files:** Collect static files using `python manage.py collectstatic`.
 
-## Testing
-To run tests, use the following command:
-
-```bash
-python manage.py test
-```
-
 ## Thank you
 
 
