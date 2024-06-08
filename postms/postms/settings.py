@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     "postms",
-    "posts"
+    "jobposts"
 ]
 
 MIDDLEWARE = [
