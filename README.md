@@ -28,34 +28,47 @@ Project state -> In Development.
     git clone https://github.com/yourusername/postit.git
     cd postit
     ```
+2. **Create a database
+    ```bash
 
-2. **Create a virtual environment:**
+    CREATE DATABASE database;
+
+    CREATE USER database WITH PASSWORD '';
+
+    ALTER ROLE database SET default_transaction_isolation TO 'read committed';
+
+    ALTER ROLE database SET timezone TO 'UTC';
+
+    ALTER DATABASE database OWNER TO databaseowner;
+    ```
+
+3. **Create a virtual environment:**
     ```bash
     python -m venv venv
     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
 
-3. **Install dependencies:**
+4. **Install dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
 
-4. **Run migrations:**
+5. **Run migrations:**
     ```bash
     python manage.py migrate
     ```
 
-5. **Create a superuser:**
+6. **Create a superuser:**
     ```bash
     python manage.py createsuperuser
     ```
 
-6. **Run the development server:**
+7. **Run the development server:**
     ```bash
     python manage.py runserver
     ```
 
-7. Open your browser and go to `http://127.0.0.1:8000/` to see the application in action.
+8. Open your browser and go to `http://127.0.0.1:8000/` to see the application in action.
 
 ## Usage
 

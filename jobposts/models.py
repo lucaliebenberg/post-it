@@ -3,6 +3,13 @@ from django.db import models
 class JobPost(models.Model):
     author = models.CharField(
         "post author",
+        max_length=255,
+        null=False,
+        blank=False,
+    )
+    contact_num = models.CharField(
+        "author contact number",
+        max_length=255,
         null=False,
         blank=False,
     )
