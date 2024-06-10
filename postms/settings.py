@@ -40,13 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # DEPENDENCIES
-    "widget_tweaks"
-    "django-dotenv",
-    "django-rest-framework"
-    "django-widget-tweaks",
-    "djangorestframework",
-    "easy-thumbnails",
-    "pillow",
+    "widget_tweaks",
+    "rest_framework",
+    "easy_thumbnails",
 
     # APPS
     "postms",
