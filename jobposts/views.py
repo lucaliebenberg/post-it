@@ -16,7 +16,7 @@ class DefaultView(TemplateView):
     def get_context_data(self, **kwargs) -> dict[str]:
         context = super().get_context_data(**kwargs)
         job_posts = JobPost.objects.all()
-        print("Job Posts --> ", job_posts)
+        # print("Job Posts --> ", job_posts)
         context["posts"] = job_posts
         return context
     
