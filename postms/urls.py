@@ -8,6 +8,8 @@ from jobposts.views import DefaultView
 # handler404 = "path"
 # handler500 = "path"
 
+app_name = "postms"
+
 urlpatterns = [
     # ADMIN
     path('admin/', admin.site.urls),

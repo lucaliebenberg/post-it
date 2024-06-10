@@ -5,5 +5,5 @@ from jobposts.views import CreateJobPost
 app_name = "jobposts"
 
 urlpatterns = [
-    path('create', CreateJobPost.as_view(), name="create_jobpost"),    
+    path('create/', CreateJobPost.as_view(), name="create_jobpost"),    
 ]
