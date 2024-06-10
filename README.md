@@ -87,7 +87,7 @@ Project state -> In Development.
 2. Click the "Delete" button.
 
 ## Configuration
-- **Database:** Default is SQLite. For production, configure the database settings in `postit/settings.py`.
+- **Database:** Default is PostgreSQL. For production, configure the database settings in `postit/settings.py`.
 - **Static files:** Collect static files using `python manage.py collectstatic`.
 
 ## Feel free to contribute and open PR's :)
