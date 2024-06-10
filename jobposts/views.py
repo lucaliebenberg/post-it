@@ -34,6 +34,12 @@ class DetailView(DetailView):
     template_name = "detail_jobpost"
     fields = '__all__'
 
+    def get_context_data(self, **kwargs) -> dict[str]:
+        context =  super().get_context_data(**kwargs)
+        post_pk = self.object.jobpost.pk
+        print('Post pk --> ', post_pk)
+        return context
+
 class DeleteJobPost(DeleteView):
     model = JobPost
     template_name = "delete_jobpost"
