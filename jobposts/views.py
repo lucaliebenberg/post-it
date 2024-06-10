@@ -4,7 +4,6 @@ from django.urls import reverse_lazy
 from django.views.generic import (
     TemplateView,
     CreateView, 
-    UpdateView,
     DeleteView, 
     DetailView
 )
@@ -16,7 +15,11 @@ class DefaultView(TemplateView):
     def get_context_data(self, **kwargs) -> dict[str]:
         context = super().get_context_data(**kwargs)
         job_posts = JobPost.objects.all()
-        # print("Job Posts --> ", job_posts)
+        for post in job_posts:
+            print(f"""
+                Post PK: {post.title},
+                Post Title: {post.title},
+            """)
         context["posts"] = job_posts
         return context
     
@@ -25,6 +28,11 @@ class CreateJobPost(CreateView):
     template_name = "create_jobpost"
     fields = '__all__'
     success_url = reverse_lazy("index")
+
+class DetailView(DetailView):
+    model = JobPost
+    template_name = "detail_jobpost"
+    fields = '__all__'
 
 class DeleteJobPost(DeleteView):
     model = JobPost

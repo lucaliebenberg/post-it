@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Job Post</title>
+</head>
+<body>
+    <h1>{{ post }}</h1>
+    
+    <div>
+        {{ post.title }}
+        {{ post.author }}
+        {{ post.description }}
+        {{ post.created_at }}
+    </div>
+
+</body>
+</html>
