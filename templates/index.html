@@ -6,13 +6,13 @@
     <title>PostIt.com</title>
 </head>
 <body style='margin: 0; padding: 0;'>
-    <div style='margin: 0; padding: 0;'>
-        <nav style="background-color: cadetblue; color: white; margin: 0; padding: 0;">
+    <div style='display: flex; flex-direction: column; padding: 0; gap: 1rem;'>
+        <nav style="background-color: cadetblue; color: white; margin: 0; padding: 4px;">
            <h1 style='margin: 0; padding: 0;'>PostIt</h1> 
         </nav>
-        <div>
-            <a href='{% url "jobposts:create_jobpost" %}'>Create Job Post</a>
-        </div>
+        <span style='background-color: red; color: black; color: white; padding: 4px; border-radius: 8px; width: 10vw;'>
+            <a href='{% url "jobposts:create_jobpost" %}' style="text-decoration: none; color: white;">Create Job Post</a>
+        </span>
     </div>
 </body>
 </html>

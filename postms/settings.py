@@ -38,7 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # DEPENDENCIES
+    "widget_tweaks"
+    "django-dotenv",
+    "django-rest-framework"
+    "django-widget-tweaks",
+    "djangorestframework",
+    "easy-thumbnails",
+    "pillow",
 
+    # APPS
     "postms",
     "jobposts"
 ]
