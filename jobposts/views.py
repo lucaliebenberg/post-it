@@ -31,3 +31,16 @@ class DeleteJobPost(DeleteView):
     template_name = "delete_jobpost"
     fields = '__all__'
     success_url = reverse_lazy("index")
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+    
+    def get_context_data(self, **kwargs) -> dict[str]:
+        context =  super().get_context_data(**kwargs)
+        post_pk = self.object.jobpost.pk
+        print('Post pk --> ', post_pk)
+        return context
+    
+    def get_success_url(self) -> str:
+        return super().get_success_url()
+    
