@@ -1,6 +1,6 @@
 # PostIt
 
-PostIt is a Django-based web application for creating and managing posts, for those who are wanting to share their services online. Users can create, edit, delete their posts, and view everyones posts.
+PostIt is a Django-based web application for creating and managing posts, for those who are wanting to share their services online in South Africa. Users can create, edit, delete their own posts, and view everyones posts.
 
 Project state -> In Development.
 
