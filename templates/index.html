@@ -6,18 +6,27 @@
     <title>PostIt.com</title>
 </head>
 <body style='margin: 0; padding: 0;'>
-    <div style='display: flex; flex-direction: column; padding: 0; gap: 1rem;'>
+    <div style='display: flex; flex-direction: column; padding: 0; gap: 2rem;'>
         <nav style="background-color: cadetblue; color: white; margin: 0; padding: 4px;">
-           <h1 style='margin: 0; padding: 0;'>PostIt</h1> 
+           <h1 style='margin: 0; padding-left: 12px;'>PostIt</h1> 
         </nav>
-        <span style='background-color: red; color: black; color: white; padding: 4px; border-radius: 8px; width: 10vw;'>
-            <a href='{% url "jobposts:create_jobpost"%}' style="text-decoration: none; color: white;">Create Job Post</a>
-        </span>
+        <div style='padding: 8px;'>
+            <span style='background-color: red; color: black; color: white; padding: 4px; border-radius: 8px; width: 10vw;'>
+                <a href='{% url "jobposts:create_jobpost"%}' style="text-decoration: none; color: white;">Create Job Post</a>
+            </span>
+        </div>
     </div>
     
     <!-- JOB POSTINGS BOARD [START] -->
-    <div>
-        
+    <div style='display: flex; flex-direction: row; flex-wrap: wrap; padding: 12px; gap: 2.2rem;'>
+        {% for post in posts %}
+        <div style='padding: 8px; border: 1px solid black; display: flex; flex-direction: column; width: 40%; border-radius: 12px;;'>
+            <h1>{{ post.author }}</h1>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.description }}</p>
+            <span>{{ post.created_at }}</span>
+        </div>
+        {% endfor %}
     </div>
     <!-- JOB POSTINGS BOARD [END] -->
 </body>
