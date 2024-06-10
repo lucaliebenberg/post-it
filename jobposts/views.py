@@ -22,12 +22,12 @@ class DefaultView(TemplateView):
     
 class CreateJobPost(CreateView):
     model = JobPost
-    template_name = "create_jobpost.html"
+    template_name = "create_jobpost"
     fields = '__all__'
     success_url = reverse_lazy("index")
 
 class DeleteJobPost(DeleteView):
     model = JobPost
-    template_name = "delete_jobpost.html"
+    template_name = "delete_jobpost"
     fields = '__all__'
     success_url = reverse_lazy("index")

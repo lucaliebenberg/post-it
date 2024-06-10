@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Job Post</title>
+</head>
+<body>
+    <h1>Deletion Confirmation</h1>
+    <form method='post'>
+    {% csrf_token %}
+
+    <p>Are you sure you want to delete {{ post }}?</p>
+    <button type="submit">Yes</button>
+
+    <button onclick="history.back()">Cancel</button>
+    <button type='submit'>Create</button>
+    </form>
+</body>
+</html>
