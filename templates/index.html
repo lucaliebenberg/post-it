@@ -20,7 +20,8 @@
     <!-- JOB POSTINGS BOARD [START] -->
     <div style='display: flex; flex-direction: row; flex-wrap: wrap; padding: 12px; gap: 2.2rem;'>
         {% for post in posts %}
-        <div style='padding: 8px; border: 1px solid black; display: flex; flex-direction: column; width: 40%; border-radius: 12px;;'>
+        <div style='position: relative;;padding: 8px; border: 1px solid black; display: flex; flex-direction: column; width: 40%; border-radius: 12px;;'>
+            <div style='display: flex; justify-content: end; width: auto; padding: 4px;'>X</div>    
             <h1>{{ post.author }}</h1>
             <h2>{{ post.title }}</h2>
             <p>{{ post.description }}</p>

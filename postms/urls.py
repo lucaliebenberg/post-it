@@ -20,6 +20,7 @@ urlpatterns = [
 ]
 
 
+# PROJECT ADMIN SETTINGS CONFIG
 # admin.site.index.title = "PostIt"
 # admin.site.site_header = "PostIt Admin"
 # admin.site.site_title = "Self Service Job Post Portal"

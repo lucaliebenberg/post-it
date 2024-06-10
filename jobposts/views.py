@@ -26,15 +26,8 @@ class CreateJobPost(CreateView):
     fields = '__all__'
     success_url = reverse_lazy("index")
 
-    # def form_valid(self, form: BaseModelForm) -> HttpResponse:
-    #     post = JobPost.objects.get(pk=self.kwargs.get("pk"))
-    #     self.object = form.save()
-    #     return HttpResponseRedirect(
-    #         reverse("index")
-    #     )
-
-    # def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
-    #     # context = super().get_context_data(**kwargs)
-    #     # post = JobPost.objects.get(pk=self.kwargs.get("pk"))
-    #     # context["post"] = post
-    #     pass
+class DeleteJobPost(DeleteView):
+    model = JobPost
+    template_name = "delete_jobpost.html"
+    fields = '__all__'
+    success_url = reverse_lazy("index")
