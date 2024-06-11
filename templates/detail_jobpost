@@ -17,7 +17,7 @@
         <h3>{{ post.created_at }}</h3> 
     </div>
     <div>
-        <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black;'>Delete</a>
+        <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
     </div>
 </body>
 </html>
