@@ -21,7 +21,8 @@ class DefaultView(TemplateView):
                 Post PK: {post.pk},
                 Post Title: {post.title},
             """)
-            
+            context['post'] = post
+
         context["posts"] = job_posts
         return context
     
