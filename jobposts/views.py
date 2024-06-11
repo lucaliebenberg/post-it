@@ -40,6 +40,7 @@ class DetailView(DetailView):
     def get_context_data(self, **kwargs) -> dict[str]:
         context =  super().get_context_data(**kwargs)
         post = self.get_object
+        context['post'] = post
         print('Post --> ', post)
         return context
 

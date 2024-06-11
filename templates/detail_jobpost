@@ -7,14 +7,11 @@
     <title>Create Job Post</title>
 </head>
 <body>
-    <h1>{{ post }}</h1>
-    
     <div>
-        {{ post.title }}
-        {{ post.author }}
-        {{ post.description }}
-        {{ post.created_at }}
+        <h1>{{ post.author }}</h1> <br/>
+        <h3>{{ post.title }}</h3> <br/>
+        <h4>{{ post.description }}</h4> <br/>
+        <h5>{{ post.created_at }}</h5> <br/>
     </div>
-
 </body>
 </html>
