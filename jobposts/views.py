@@ -17,9 +17,11 @@ class DefaultView(TemplateView):
         job_posts = JobPost.objects.all()
         for post in job_posts:
             print(f"""
-                Post PK: {post.title},
+                Post ID: {post.id},
+                Post PK: {post.pk},
                 Post Title: {post.title},
             """)
+            
         context["posts"] = job_posts
         return context
     
@@ -36,8 +38,10 @@ class DetailView(DetailView):
 
     def get_context_data(self, **kwargs) -> dict[str]:
         context =  super().get_context_data(**kwargs)
-        post_pk = self.object.jobpost.pk
-        print('Post pk --> ', post_pk)
+        post = self.get_object
+        print('Post --> ', post)
+        # print('Post ID --> ', post.id)
+        # print('Post PK --> ', post.pk)
         return context
 
 class DeleteJobPost(DeleteView):
@@ -52,7 +56,7 @@ class DeleteJobPost(DeleteView):
     def get_context_data(self, **kwargs) -> dict[str]:
         context =  super().get_context_data(**kwargs)
         post_pk = self.object.jobpost.pk
-        print('Post pk --> ', post_pk)
+        # print('Post pk --> ', post_pk)
         return context
     
     def get_success_url(self) -> str:

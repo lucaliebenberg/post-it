@@ -22,7 +22,9 @@
         {% for post in posts %}
         <div style='position: relative;;padding: 8px; border: 1px solid black; display: flex; flex-direction: column; width: 40%; border-radius: 12px;'>
 
-                <div style='display: flex; justify-content: end; width: auto; padding: 4px;'>View</div>    
+                <div style='display: flex; justify-content: end; width: auto; padding: 4px;'>
+                    <a href='' style="text-decoration: none; color: white;">View</a>
+                </div>    
 
             <h1>{{ post.author }}</h1>
             <h2>{{ post.title }}</h2>
