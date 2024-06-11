@@ -11,11 +11,10 @@
     <form method='post'>
     {% csrf_token %}
 
-    <p>Are you sure you want to delete {{ post }}?</p>
+    <p>Are you sure you want to delete {{ post.author }}'s' {{ post.title }} job post?</p>
     <button type="submit">Yes</button>
 
     <button onclick="history.back()">Cancel</button>
-    <button type='submit'>Create</button>
     </form>
 </body>
 </html>

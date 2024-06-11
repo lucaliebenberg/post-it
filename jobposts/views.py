@@ -41,8 +41,6 @@ class DetailView(DetailView):
         context =  super().get_context_data(**kwargs)
         post = self.get_object
         print('Post --> ', post)
-        # print('Post ID --> ', post.id)
-        # print('Post PK --> ', post.pk)
         return context
 
 class DeleteJobPost(DeleteView):
@@ -56,8 +54,8 @@ class DeleteJobPost(DeleteView):
     
     def get_context_data(self, **kwargs) -> dict[str]:
         context =  super().get_context_data(**kwargs)
-        post_pk = self.object.jobpost.pk
-        # print('Post pk --> ', post_pk)
+        post = self.get_object
+        context['post'] = post
         return context
     
     def get_success_url(self) -> str:
