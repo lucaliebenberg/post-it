@@ -16,5 +16,8 @@
         <h3>{{ post.description }}</h3> 
         <h3>{{ post.created_at }}</h3> 
     </div>
+    <div>
+        <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black;'>Delete</a>
+    </div>
 </body>
 </html>
