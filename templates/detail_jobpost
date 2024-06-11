@@ -8,10 +8,13 @@
 </head>
 <body>
     <div>
-        <h1>{{ post.author }}</h1> <br/>
-        <h3>{{ post.title }}</h3> <br/>
-        <h4>{{ post.description }}</h4> <br/>
-        <h5>{{ post.created_at }}</h5> <br/>
+        <button onclick="history.back()"> <-- Dashboard</button>
+    </div>
+    <div>
+        <h1>{{ post.author }}</h1> 
+        <h2>{{ post.title }}</h2> 
+        <h3>{{ post.description }}</h3> 
+        <h3>{{ post.created_at }}</h3> 
     </div>
 </body>
 </html>
