@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     # DEPENDENCIES
     "widget_tweaks",
     "rest_framework",
+    "rest_framework_simplejwt",
     "easy_thumbnails",
 
     # APPS
@@ -62,6 +63,12 @@ ROOT_URLCONF = 'postms.urls'
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 
 TEMPLATES = [
     {
