@@ -13,6 +13,15 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
+try:
+    import dotenv
+
+    DOT_ENV_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    DOT_ENV_PATH = os.path.join(DOT_ENV_DIR, ".env")
+    dotenv.read_dotenv(str(DOT_ENV_PATH))
+except Exception:
+    pass
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -46,7 +55,8 @@ INSTALLED_APPS = [
 
     # APPS
     "postms",
-    "jobposts"
+    "jobposts",
+    "accounts"
 ]
 
 MIDDLEWARE = [
@@ -89,12 +99,12 @@ WSGI_APPLICATION = 'postms.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postit',
-        "USER": "postit",
-        "PASSWORD": "postitpass",
-        "HOST": "localhost",
-        "PORT": 5432,
+        'ENGINE': os.environ.get("DB_ENGINE"),
+        'NAME': os.environ.get("DB_NAME"),
+        "USER": os.environ.get("DB_USER"),
+        "PASSWORD": os.environ.get("DB_PASSWORD"),
+        "HOST": os.environ.get("DB_HOST"),
+        "PORT": os.environ.get("DB_PORT"),
     }
 }
 
