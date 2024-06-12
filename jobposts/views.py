@@ -1,5 +1,7 @@
 from django.forms import BaseModelForm
 from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
 from django.views.generic import (
     TemplateView,
@@ -9,6 +11,7 @@ from django.views.generic import (
 )
 from jobposts.models import JobPost
 
+@method_decorator(login_required, name="dispatch")
 class DefaultView(TemplateView):
     template_name = "index.html"
     
@@ -26,12 +29,14 @@ class DefaultView(TemplateView):
         context["posts"] = job_posts
         return context
     
+@method_decorator(login_required, name="dispatch")
 class CreateJobPost(CreateView):
     model = JobPost
     template_name = "create_jobpost"
     fields = '__all__'
     success_url = reverse_lazy("index")
 
+@method_decorator(login_required, name="dispatch")
 class DetailView(DetailView):
     model = JobPost
     template_name = "detail_jobpost"
@@ -44,6 +49,7 @@ class DetailView(DetailView):
         print('Post --> ', post)
         return context
 
+@method_decorator(login_required, name="dispatch")
 class DeleteJobPost(DeleteView):
     model = JobPost
     template_name = "delete_jobpost"
