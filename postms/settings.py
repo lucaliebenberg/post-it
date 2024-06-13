@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     "postms",
     "jobposts",
     "accounts",
-    'authors'
+    'authors' # might need to move above 'jobposts'
 ]
 
 MIDDLEWARE = [

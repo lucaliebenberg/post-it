@@ -1,8 +1,8 @@
 from django.db import models
 
 class JobPost(models.Model):
-    author = models.CharField(
-        "post author",
+    author = models.ForeignKey(
+        "authors.Author",
         max_length=255,
         null=False,
         blank=False,
