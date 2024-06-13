@@ -16,18 +16,19 @@ class RegisterForm(UserCreationForm):
         help_text=("Required. Add a valid email address")
     )
 
-    class Meta:
-        model = User
-        fields = [
-            "username",
-            "email",
-            "is_staff",
-            "is_active",
-            "password1",
-            "password2"
-        ]
+    # class Meta:
+    #     model = User
+    #     fields = [
+    #         "username",
+    #         "email",
+    #         "is_staff",
+    #         "is_active",
+    #         "password1",
+    #         "password2"
+    #     ]
 
 class LoginForm(AuthenticationForm):
-    class Meta:
-        model = User
-        fields = ["username", "password"]
+    # class Meta:
+    #     model = User
+    #     fields = ["username", "password"]
+    pass

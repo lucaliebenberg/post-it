@@ -1,9 +1,9 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
-from rest_framework.simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.tokens import RefreshToken
 
-from accounts.forms import RegisterForm
+from accounts.forms import RegisterForm, LoginForm
 
 class CustomRegisterView(CreateView):
     form_class = RegisterForm
@@ -18,6 +18,7 @@ class CustomRegisterView(CreateView):
 
 class CustomLoginView(LoginView):
     template_name = "login.html"
+    form_class = LoginForm
     success_url = reverse_lazy("index")
 
     def form_valid(self, form):
