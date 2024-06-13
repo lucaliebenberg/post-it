@@ -1,9 +1,9 @@
 from django.db import models
 
 class JobPost(models.Model):
-    author = models.ForeignKey(
+    creator = models.ForeignKey(
         "authors.Author",
-        max_length=255,
+        on_delete=models.CASCADE,
         null=False,
         blank=False,
     )
