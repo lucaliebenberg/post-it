@@ -1,6 +1,7 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from accounts.forms import RegisterForm, LoginForm
@@ -9,10 +10,9 @@ class CustomRegisterView(CreateView):
     form_class = RegisterForm
     template_name = "register.html"
     success_url = reverse_lazy("login")
-    success_url = "Your profile was created successfully"
 
     def form_valid(self, form):
-       user = form.save(commit=False)
+       user = form.save()
        user.save()
        return super().form_valid(form)
 
