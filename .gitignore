@@ -5,6 +5,7 @@ venv
 .env
 
 # pycache
+*/__pycache__/
 accounts/__pycache__/
 authors/__pycache__/
 jobposts/__pycache__/
