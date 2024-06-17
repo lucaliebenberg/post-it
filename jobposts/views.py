@@ -25,6 +25,7 @@ class DefaultView(TemplateView):
             context['post'] = post
 
         context["posts"] = job_posts
+        print("posts --> ", job_posts)
         print("users --> ", users)
 
         return context
