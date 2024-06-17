@@ -22,12 +22,13 @@ Project state -> In Development.
 - Git
 
 ### Setup
-
+@Luca Please Advize which software to us, VSC OR PY.
 1. **Clone the repository:**
     ```bash
     git clone https://github.com/yourusername/postit.git
     cd postit
     ```
+@Luca Please advize which and how to do this as well!
 2. **Create a database
     ```bash
 
