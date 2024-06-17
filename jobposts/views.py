@@ -2,7 +2,7 @@ from django.forms import BaseModelForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import (
     TemplateView,
     CreateView, 
@@ -10,23 +10,23 @@ from django.views.generic import (
     DetailView
 )
 from jobposts.models import JobPost
+from accounts.models import User
+from accounts.constants import LOG_OUT_VIA
 
 @method_decorator(login_required, name="dispatch")
 class DefaultView(TemplateView):
     template_name = "index.html"
     
     def get_context_data(self, **kwargs) -> dict[str]:
-        context = super().get_context_data(**kwargs)
+        context = super(DefaultView, self).get_context_data(**kwargs)
         job_posts = JobPost.objects.all()
+        users = User.objects.all()
         for post in job_posts:
-            print(f"""
-                Post ID: {post.id},
-                Post PK: {post.pk},
-                Post Title: {post.title},
-            """)
             context['post'] = post
 
         context["posts"] = job_posts
+        print("users --> ", users)
+
         return context
     
 @method_decorator(login_required, name="dispatch")
