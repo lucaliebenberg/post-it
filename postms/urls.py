@@ -6,6 +6,8 @@ from accounts.views import (
     CustomLoginView,
     CustomLogoutView
 )
+from django.contrib.auth.views import LoginView, LogoutView
+
 
 # ERROR HANDLERS
 # handler400 = "path"
@@ -21,8 +23,8 @@ urlpatterns = [
 
     # AUTH (USER)
     path('register', CustomRegisterView.as_view(), name="register"),
-    path('login', CustomLoginView.as_view(), name="login"),
-    path('logout', CustomLogoutView.as_view(), name="logout"),
+    path('login', LoginView.as_view(), name="login"),
+    path('logout', LogoutView.as_view(next_page='login'), name="logout"),
 
     # CLIENT
     path('', DefaultView.as_view(), name="index"),

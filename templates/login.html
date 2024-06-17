@@ -6,13 +6,18 @@
     <title>Log In</title>
 </head>
 <body>
-    <form method='post' action="{% url 'login' %}">
+    <!-- <form method='post' action="{% url 'login' %}">
         {% csrf_token %}
         <p>{{ form.errors }}</p>
         <h1>Log In</h1>
         <input type='text' id='username' name='username' placeholder='Enter your username' />
         <input type='password' id='password' name='password' placeholder='Enter your password' />
 
+        <button type='submit'>Log In</button>
+    </form> -->
+    <form method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
         <button type='submit'>Log In</button>
     </form>
     <div>

@@ -28,10 +28,7 @@ class DefaultView(TemplateView):
         print("users --> ", users)
 
         # HANDLE USER LOG OUT
-        logout_url = self.request.session.get(
-            LOG_OUT_VIA , reverse("login") + "?next=/"
-        )
-        context = super(DefaultView, self).get_context_data(**kwargs)
+        logout_url = reverse_lazy("logout")
         context["LOG_OUT_VIA"] = logout_url
 
         return context
