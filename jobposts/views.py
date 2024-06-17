@@ -2,7 +2,7 @@ from django.forms import BaseModelForm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import (
     TemplateView,
     CreateView, 
@@ -11,8 +11,9 @@ from django.views.generic import (
 )
 from jobposts.models import JobPost
 from accounts.models import User
+from accounts.constants import LOG_OUT_VIA
 
-# @method_decorator(login_required, name="dispatch")
+@method_decorator(login_required, name="dispatch")
 class DefaultView(TemplateView):
     template_name = "index.html"
     
@@ -25,6 +26,14 @@ class DefaultView(TemplateView):
 
         context["posts"] = job_posts
         print("users --> ", users)
+
+        # HANDLE USER LOG OUT
+        logout_url = self.request.session.get(
+            LOG_OUT_VIA , reverse("login") + "?next=/"
+        )
+        context = super(DefaultView, self).get_context_data(**kwargs)
+        context["LOG_OUT_VIA"] = logout_url
+
         return context
     
 @method_decorator(login_required, name="dispatch")
