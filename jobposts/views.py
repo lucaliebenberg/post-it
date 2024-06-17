@@ -10,14 +10,16 @@ from django.views.generic import (
     DetailView
 )
 from jobposts.models import JobPost
+from accounts.models import User
 
-@method_decorator(login_required, name="dispatch")
+# @method_decorator(login_required, name="dispatch")
 class DefaultView(TemplateView):
     template_name = "index.html"
     
     def get_context_data(self, **kwargs) -> dict[str]:
         context = super().get_context_data(**kwargs)
         job_posts = JobPost.objects.all()
+        users = User.objects.all()
         for post in job_posts:
             print(f"""
                 Post ID: {post.id},
@@ -27,6 +29,7 @@ class DefaultView(TemplateView):
             context['post'] = post
 
         context["posts"] = job_posts
+        print("users --> ", users)
         return context
     
 @method_decorator(login_required, name="dispatch")
