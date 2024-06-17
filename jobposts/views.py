@@ -21,11 +21,6 @@ class DefaultView(TemplateView):
         job_posts = JobPost.objects.all()
         users = User.objects.all()
         for post in job_posts:
-            print(f"""
-                Post ID: {post.id},
-                Post PK: {post.pk},
-                Post Title: {post.title},
-            """)
             context['post'] = post
 
         context["posts"] = job_posts
