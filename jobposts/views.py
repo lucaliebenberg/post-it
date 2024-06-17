@@ -18,7 +18,7 @@ class DefaultView(TemplateView):
     template_name = "index.html"
     
     def get_context_data(self, **kwargs) -> dict[str]:
-        context = super().get_context_data(**kwargs)
+        context = super(DefaultView, self).get_context_data(**kwargs)
         job_posts = JobPost.objects.all()
         users = User.objects.all()
         for post in job_posts:
@@ -26,10 +26,6 @@ class DefaultView(TemplateView):
 
         context["posts"] = job_posts
         print("users --> ", users)
-
-        # HANDLE USER LOG OUT
-        logout_url = reverse_lazy("logout")
-        context["LOG_OUT_VIA"] = logout_url
 
         return context
     

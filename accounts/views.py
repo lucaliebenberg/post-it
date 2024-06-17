@@ -33,5 +33,4 @@ class CustomLoginView(LoginView):
         refresh = RefreshToken.for_user(user)
         return refresh.access_token
 class CustomLogoutView(LogoutView):
-    # template_name = "logout.html"
-    success_url = reverse_lazy("login")
+    next_page = reverse_lazy("login")

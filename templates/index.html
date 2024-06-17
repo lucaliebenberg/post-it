@@ -12,12 +12,17 @@
                 <h1 style='margin: 0; padding-left: 12px;'>PostIt</h1> 
              </nav>
              <div style='padding: 8px;'>
-                <a href='{% url "logout" %}' style='text-decoration: none; color: white;'>
-                    <a style="list-style: none; text-decoration: none; color: white;">
-                        Log Out
-                    </a>
-                </a>
-             </div>
+                <!-- logout form -->
+                <form 
+                id="logout-form" 
+                action="{% url 'logout' %}" 
+                method="post" 
+                
+                >
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            </div>
         </div>
  
         <div style='padding: 8px;'>
