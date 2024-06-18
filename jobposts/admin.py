@@ -4,7 +4,7 @@ from jobposts.models import JobPost
 @admin.register(JobPost)
 class JobPostAdmin(admin.ModelAdmin):
     list_display =(
-        "creator",
+        # "creator",
         "title",
         "description",
         "created_at"

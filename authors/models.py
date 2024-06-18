@@ -1,12 +1,11 @@
 from django.db import models
-from jobposts.models import JobPost
 from accounts.models import User
 
 class Author(models.Model):
     posts = models.ForeignKey(
-        JobPost,
+        "jobposts.JobPost",
         on_delete=models.CASCADE,
-        null=False,
+        null=True,
         blank=False,
     )
     user = models.ForeignKey(
