@@ -5,5 +5,5 @@ from authors.models import Author
 class AuthorAdmin(admin.ModelAdmin):
     list_display =(
         "posts",
-        "name",
+        "user",
     )

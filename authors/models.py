@@ -1,5 +1,6 @@
 from django.db import models
 from jobposts.models import JobPost
+from accounts.models import User
 
 class Author(models.Model):
     posts = models.ForeignKey(
@@ -8,9 +9,9 @@ class Author(models.Model):
         null=False,
         blank=False,
     )
-    name = models.CharField(
-        "author name",
-        max_length=255,
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
         null=False,
         blank=False
     )
