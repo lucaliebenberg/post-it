@@ -93,6 +93,6 @@ Project state -> In Development.
 ## Feel free to contribute and open PR's :
 
 Ideation board <br/> 
-[ https://www.figma.com/board/Jb9WCXvCkIHV0mGRlaqA96/PostIt---Ideation-Space?node-id=0-1&t=s4LQHB0vwWZCUu8w-0 ]
+https://www.figma.com/board/Jb9WCXvCkIHV0mGRlaqA96/PostIt---Ideation-Space?node-id=0-1&t=s4LQHB0vwWZCUu8w-0 
 
 
