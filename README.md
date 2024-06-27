@@ -19,6 +19,7 @@ Project state -> In Development.
 ### Prerequisites
 - Python 3.x
 - Django 3.x or higher
+- Postgres (@14 or higher)
 - Git
 
 ### Setup
