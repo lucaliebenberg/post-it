@@ -12,7 +12,7 @@ Project state -> In Development.
 - [License](#license)
 
 ## Features
-- Create, read, update, and delete (CRUD) operations for JobPosts
+- Create, read, update, and delete (CRUD) operations for job posts (with permission restrictions)
 
 ## Installation
 
