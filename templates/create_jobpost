@@ -11,7 +11,7 @@
     <form method='post' enctype='multipart/form-data'>
     {% csrf_token %}
 
-    {% for field in form.visible_fields %}
+    {% comment %} {% for field in form.visible_fields %} {% endcomment %}
         <div class='form-group'>
             <label for='{{ field.id_for_label}}'>{{ field.label }}</label>
             {{ form.as_p }}
@@ -19,7 +19,7 @@
             <span class='help-block'>{{ error }}</span>
             {% endfor %}
         </div>
-    {% endfor %}
+    {% comment %} {% endfor %} {% endcomment %}
 
     <button type='submit'>Create</button>
     </form>

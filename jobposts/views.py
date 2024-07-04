@@ -40,6 +40,17 @@ class CreateJobPost(CreateView):
     fields = '__all__'
     success_url = reverse_lazy("index")
 
+    def get_form(self, form_class: BaseModelForm | None = ...) -> BaseModelForm:
+        user = self.request.user
+        form = super().get_form(form_class)
+        form.fields["creator"].queryset = user
+        return form
+    
+    def form_valid(self, form):
+        form.instance.creator = self.request.user
+        return super().form_valid(form)
+    
+
 @method_decorator(login_required, name="dispatch")
 class DetailView(DetailView):
     model = JobPost

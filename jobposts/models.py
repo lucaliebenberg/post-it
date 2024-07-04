@@ -1,8 +1,9 @@
 from django.db import models
+from accounts.models import User
 
 class JobPost(models.Model):
     creator = models.ForeignKey(
-        'authors.Author',
+       User,
         on_delete=models.CASCADE,
         null=False,
         blank=False,
