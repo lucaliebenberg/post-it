@@ -3,7 +3,7 @@ from authors.models import Author
 
 class JobPost(models.Model):
     creator = models.ForeignKey(
-        Author,
+        'authors.Author',
         on_delete=models.CASCADE,
         null=False,
         blank=False,
