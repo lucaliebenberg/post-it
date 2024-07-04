@@ -20,13 +20,16 @@ class DefaultView(TemplateView):
     def get_context_data(self, **kwargs) -> dict[str]:
         context = super(DefaultView, self).get_context_data(**kwargs)
         job_posts = JobPost.objects.all()
+        current_user = self.request.user
         users = User.objects.all()
         for post in job_posts:
             context['post'] = post
 
         context["posts"] = job_posts
         print("posts --> ", job_posts)
-        print("users --> ", users)
+        context["current_user"] = current_user
+        print("current user >>>> ", current_user)
+        # print("users --> ", users)
 
         return context
     
