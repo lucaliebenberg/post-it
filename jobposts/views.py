@@ -43,12 +43,6 @@ class CreateJobPost(CreateView):
         "description",
     )
     success_url = reverse_lazy("index")
-
-    # def get_form(self, form_class=None):
-    #     user = self.request.user
-    #     form = super().get_form(form_class)
-    #     # form.fields["creator"].queryset = user
-    #     return form
     
     def form_valid(self, form):
         form.instance.creator = self.request.user
