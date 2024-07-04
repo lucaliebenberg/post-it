@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Create A Job Posting</h1>
-    <form method='post' enctype='multipart/form-data'>
+    <form method='post'>
     {% csrf_token %}
 
     {% comment %} {% for field in form.visible_fields %} {% endcomment %}

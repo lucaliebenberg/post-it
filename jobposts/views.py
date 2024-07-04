@@ -37,18 +37,24 @@ class DefaultView(TemplateView):
 class CreateJobPost(CreateView):
     model = JobPost
     template_name = "create_jobpost"
-    fields = '__all__'
+    fields = (
+        "contact_num",
+        "title",
+        "description",
+    )
     success_url = reverse_lazy("index")
 
-    def get_form(self, form_class: BaseModelForm | None = ...) -> BaseModelForm:
-        user = self.request.user
-        form = super().get_form(form_class)
-        form.fields["creator"].queryset = user
-        return form
+    # def get_form(self, form_class=None):
+    #     user = self.request.user
+    #     form = super().get_form(form_class)
+    #     # form.fields["creator"].queryset = user
+    #     return form
     
     def form_valid(self, form):
         form.instance.creator = self.request.user
-        return super().form_valid(form)
+        self.object = form.save()
+
+        return HttpResponseRedirect(reverse_lazy("index"))
     
 
 @method_decorator(login_required, name="dispatch")
