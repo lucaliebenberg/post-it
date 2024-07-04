@@ -23,7 +23,10 @@ class DefaultView(TemplateView):
         current_user = self.request.user
         users = User.objects.all()
         for post in job_posts:
+            creator = post.creator
             context['post'] = post
+            context['creator'] = creator
+            print("Post creator >> ", post.creator)
 
         context["posts"] = job_posts
         print("posts --> ", job_posts)
@@ -60,7 +63,9 @@ class DetailView(DetailView):
     def get_context_data(self, **kwargs) -> dict[str]:
         context =  super().get_context_data(**kwargs)
         post = self.get_object
+        user = self.request.user
         context['post'] = post
+        context['user'] = user
         print('Post --> ', post)
         return context
 

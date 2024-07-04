@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load widget_tweaks %}
+{% load permission_filter %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,13 +12,15 @@
         <button onclick="history.back()"> <-- Dashboard</button>
     </div>
     <div>
-        <h1>{{ post.author }}</h1> 
+        <h1>{{ post.creator }}</h1> 
         <h2>{{ post.title }}</h2> 
         <h3>{{ post.description }}</h3> 
         <h3>{{ post.created_at }}</h3> 
     </div>
     <div>
-        <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
+        {% if user|is_post_author:post %}
+            <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
+        {% endif %}
     </div>
 </body>
 </html>
