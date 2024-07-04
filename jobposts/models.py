@@ -1,5 +1,4 @@
 from django.db import models
-from authors.models import Author
 
 class JobPost(models.Model):
     creator = models.ForeignKey(
