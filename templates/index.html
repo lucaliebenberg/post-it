@@ -1,5 +1,5 @@
-{% load permission_filter %}
 <!DOCTYPE html>
+{% load permission_filter %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,7 @@
         </div>
  
         <div style='padding: 8px;'>
-            <span style='background-color: red; color: black; color: white; padding: 4px; border-radius: 8px; width: 10vw;'>
+            <span style='background-color: cadetblue; color: black; color: white; padding: 4px; border-radius: 8px; width: 10vw;'>
                 <a href='{% url "jobposts:create_jobpost"%}' style="text-decoration: none; color: white;">Create Job Post</a>
             </span>
         </div>
@@ -38,17 +38,31 @@
         {% for post in posts %}
         <div style='position: relative;;padding: 8px; border: 1px solid black; display: flex; flex-direction: column; width: 40%; border-radius: 12px;'>
 
+            {% if user|is_post_author:post %}    
                 <div style='display: flex; justify-content: end; width: auto; padding: 4px;'>
-                    <button>
-                        <a href='{% url "jobposts:detail_jobpost" pk=post.pk %}' style="text-decoration: none; color: black;">View</a>    
-                    </button>
-                </div>    
+                        <!-- <button> -->
+                            <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
+                        <!-- </button> -->
+                </div>
+            {% endif %}
+                            
 
+            <a href='{% url "jobposts:detail_jobpost" pk=post.pk %}' style="text-decoration: none; color: black;">
             
-            <h1>{{ post.creator }}</h1>
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.description }}</p>
             <span>{{ post.created_at }}</span>
+            <h2>{{ post.creator }}</h2>
+            <h3>{{ post.title }}</h3>
+            <p 
+            style=
+            'line-clamp: 1;
+             text-overflow: ellipsis;
+             word-wrap: break-word;
+            overflow: hidden;
+            max-height: 3.6em;
+            line-height: 1.8em; 
+             '>{{ post.description }}</p>
+            </a>    
+
         </div>
         {% endfor %}
     </div>

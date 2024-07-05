@@ -9,7 +9,7 @@
 </head>
 <body>
     <div>
-        <button onclick="history.back()"> <-- Dashboard</button>
+        <button onclick="history.back()"> <- Go back</button>
     </div>
     <div>
         <h1>{{ post.creator }}</h1> 
