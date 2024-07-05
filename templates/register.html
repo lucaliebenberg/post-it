@@ -10,14 +10,16 @@
         {% csrf_token %}
         <p>{{ form.errors }}</p>
         <h1>Register</h1>
-        <input type='text' id='username' name='username' placeholder='Enter your username' />
-        <input type='email' id='email' name='email' placeholder='Enter your email' />
-        <input type='password' id='password1' name='password1' placeholder='Enter your password' />
-        <input type='password' id='password2' name='password2' placeholder='Confirm your password' />
+        <div style='display: flex; flex-direction: column; width: 30vw; gap: 1em; margin-bottom: 1em;'>
+            <input type='text' id='username' name='username' placeholder='Enter your username' />
+            <input type='email' id='email' name='email' placeholder='Enter your email' />
+            <input type='password' id='password1' name='password1' placeholder='Enter your password' />
+            <input type='password' id='password2' name='password2' placeholder='Confirm your password' />
+        </div>
 
-        <button type='submit'>Register</button>
+        <button type='submit' style='width: 30vw;'>Register</button>
     </form>
-    <div>
+    <div style='display: flex; flex-direction: row; align-items: center; gap: 0.5em;'>
         <p>Have an account?</p><a href="{% url 'login' %}">Login</a>
     </div>      
 </body>

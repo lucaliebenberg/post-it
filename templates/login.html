@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
 </head>
-<body>
-    <h1>Log In</h1>
-    <form method='post'>
+
+    <form method='post' action="{% url 'login' %}">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type='submit'>Log In</button>
+        <p>{{ form.errors }}</p>
+        <h1>Login</h1>
+        <div style='display: flex; flex-direction: column; width: 30vw; gap: 1em; margin-bottom: 1em;'>
+            <input type='text' id='username' name='username' placeholder='Enter your username' />
+            <input type='password' id='password' name='password' placeholder='Enter your password' />
+        </div>
+
+        <button type='submit' style='width: 30vw;'>Login</button>
     </form>
-    <div>
+    <div style='display: flex; flex-direction: row; align-items: center; gap: 0.5em;'>
         <p>Don't have an account?</p><a href="{% url 'register' %}">Register</a>
-    </div>    
-</body>
+    </div> 
+
 </html>
