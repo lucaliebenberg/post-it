@@ -1,9 +1,9 @@
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView
 from django.views.generic import CreateView
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from rest_framework_simplejwt.tokens import RefreshToken
-
 from accounts.forms import RegisterForm, LoginForm
 
 class CustomRegisterView(CreateView):
@@ -34,3 +34,12 @@ class CustomLoginView(LoginView):
         return refresh.access_token
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy("login")
+
+
+class CustomResetPasswordView(PasswordResetView, SuccessMessageMixin):
+    template_name = 'password_reset.html'
+    email_template_name = 'password_reset_email.html'
+    subject_template_name = 'password_reset_subject'
+    success_message = "We have emailed you. Check your mail !!!"
+    success_url = reverse_lazy("login")
+    
