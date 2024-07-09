@@ -11,7 +11,7 @@
         <form method='post' action="{% url 'login' %}">
             {% csrf_token %}
             <p>{{ form.errors }}</p>
-            <h1>Login</h1>
+            <h2>Login</h2>
             <div style='display: flex; flex-direction: column; width: 30vw; gap: 1em; margin-bottom: 1em;'>
                 <input type='text' id='username' name='username' placeholder='Enter your username' style='padding: .3em; border-radius: 8px; border-radius: 8px;' />
                 <input type='password' id='password' name='password' placeholder='Enter your password' style='padding: .3em; border-radius: 8px; border-radius: 8px;' />

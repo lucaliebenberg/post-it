@@ -4,17 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Job Post</title>
+    <title>Delete Job Post</title>
 </head>
 <body>
     <h1>Deletion Confirmation</h1>
-    <form method='post'>
-    {% csrf_token %}
-
-    <p>Are you sure you want to delete: {{ post.author }}'s' {{ post.title }} job post?</p>
-    <button type="submit">Yes</button>
-
-    <button onclick="history.back()">Cancel</button>
-    </form>
+        <form method='post'>
+        {% csrf_token %}
+        <p>Are you sure you want to delete your post: {{ post.title }}?</p>
+            <button type="submit">Yes</button>
+            <a href="history.back()">Go back</a>
+        </form>
 </body>
 </html>

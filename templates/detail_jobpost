@@ -5,22 +5,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Job Post</title>
+    <title>Post Detail</title>
 </head>
 <body>
     <div>
         <button onclick="history.back()"> <- Go back</button>
     </div>
-    <div>
-        <h1>{{ post.creator }}</h1> 
-        <h2>{{ post.title }}</h2> 
-        <h3>{{ post.description }}</h3> 
-        <h3>{{ post.created_at }}</h3> 
-    </div>
-    <div>
-        {% if user|is_post_author:post %}
-            <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
-        {% endif %}
+
+    <div style='width: 100%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; margin: 0 auto; text-align: center;'>
+        <form method='post'>
+            {% csrf_token %}
+                <div style='display: flex; flex-direction: column; width: 30vw; gap: 1em; margin: 0 auto;'>
+                    {% for error in field.errors %}
+                    <span class='help-block'>{{ error }}</span>
+                    {% endfor %}
+                    <h1>{{ post.creator }}</h1> 
+                    <h2>{{ post.title }}</h2> 
+                    <h3>{{ post.description }}</h3> 
+                    <h3>{{ post.created_at }}</h3> 
+                </div>
+                <div>
+                    {% if user|is_post_author:post %}
+                        <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
+                    {% endif %}
+                </div>
+            </form>
     </div>
 </body>
 </html>
