@@ -1,5 +1,5 @@
 asgiref==3.8.1
-Django==5.0.6
+Django==4.2
 django-dotenv==1.4.2
 django-rest-framework==0.1.0
 django-widget-tweaks==1.5.0
@@ -11,5 +11,6 @@ packaging==24.1
 phonenumbers==8.13.38
 pillow==10.3.0
 psycopg2==2.9.9
+psycopg2-binary==2.9.9
 PyJWT==2.8.0
 sqlparse==0.5.0
