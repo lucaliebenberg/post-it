@@ -9,6 +9,9 @@
 <body>
 
     <div style='width: 100%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; margin: 0 auto; text-align: center;'>
+
+        <a href='{% url 'index' %}'><- Home</a>
+        
         <h2>Create A Job Posting</h3>
         <form method='post'>
             {% csrf_token %}
