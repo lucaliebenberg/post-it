@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from rest_framework_simplejwt.tokens import RefreshToken
 from accounts.forms import RegisterForm, LoginForm
+from django.views.generic import TemplateView
 
 class CustomRegisterView(CreateView):
     form_class = RegisterForm
@@ -42,4 +43,9 @@ class CustomResetPasswordView(PasswordResetView, SuccessMessageMixin):
     subject_template_name = 'password_reset_subject'
     success_message = "We have emailed you. Check your mail !!!"
     success_url = reverse_lazy("login")
-    
+
+class AccountMenuView(TemplateView):
+    template_name = "account_menu.html"
+
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs)

@@ -25,16 +25,12 @@ urlpatterns = [
     path('register', CustomRegisterView.as_view(), name="register"),
     path('login', CustomLoginView.as_view(), name="login"),
     path('logout', CustomLogoutView.as_view(), name="logout"),
-    path('password-reset', CustomResetPasswordView.as_view(), name="reset_password"),
-    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password_reset_confirm.html"), name="password_reset_confirm"),
-     path('password-reset-complete/',
-         auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'),
-         name='password_reset_complete'),
-
+    
 
     # CLIENT
     path('', DefaultView.as_view(), name="index"),
     path('jobposts/', include("jobposts.urls")),
+    path('account/', include("accounts.urls")),
 ]
 
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Menu</title>
+</head>
+<body>
+    <a href='history.back()'> <- Go back </a>
+    <h1>Account Menu</h1>
+    <div>
+        <p>Email: {{ user.email }}</p>
+        <p>
+            <span style='text-align: right; font-size: 15px;'><a href="{% url 'reset_password' %}">Forgot password?</a></span>
+        </p>
+        <p>
+            <form 
+                id="logout-form" 
+                action="{% url 'logout' %}" 
+                method="post" 
+                
+                >
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+        </p>
+        <p>
+            <a>Delete Account</a>
+        </p>
+    </div>
+</body>
+</html>

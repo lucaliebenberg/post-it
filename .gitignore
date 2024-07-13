@@ -6,11 +6,8 @@ venv
 .env
 
 # pycache
-*/__pycache__/
-accounts/__pycache__/
-authors/__pycache__/
-jobposts/__pycache__/
-postms/__pycache__/
+**/__pycache__/**/*
+*/__pycache__/*
 
 # MacOS
 .DS_Store
