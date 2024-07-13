@@ -11,7 +11,6 @@ from django.views.generic import (
 )
 from jobposts.models import JobPost
 from accounts.models import User
-from accounts.constants import LOG_OUT_VIA
 
 @method_decorator(login_required, name="dispatch")
 class DefaultView(TemplateView):
@@ -21,7 +20,7 @@ class DefaultView(TemplateView):
         context = super(DefaultView, self).get_context_data(**kwargs)
         job_posts = JobPost.objects.all()
         current_user = self.request.user
-        users = User.objects.all()
+
         for post in job_posts:
             creator = post.creator
             context['post'] = post
@@ -29,10 +28,7 @@ class DefaultView(TemplateView):
             print("Post creator >> ", post.creator)
 
         context["posts"] = job_posts
-        print("posts --> ", job_posts)
         context["current_user"] = current_user
-        print("current user >>>> ", current_user)
-        # print("users --> ", users)
 
         return context
     
@@ -66,7 +62,6 @@ class DetailView(DetailView):
         user = self.request.user
         context['post'] = post
         context['user'] = user
-        print('Post --> ', post)
         return context
 
 @method_decorator(login_required, name="dispatch")

@@ -12,14 +12,21 @@
             <nav style="background-color: cadetblue; color: white; margin: 0; padding: 4px;">
                 <h1 style='margin: 0; padding-left: 12px;'>Post It</h1> 
              </nav>
-             <div style='padding: 8px;'>
+
+            <div style="padding: 8px; display: flex; align-items: center;">
                 <a 
-                id="account-menu" 
-                href="{% url 'accounts:account_menu' %}" 
+                    id="account-menu" 
+                    href="{% url 'accounts:account_menu' %}" 
+                    style="text-decoration: none; display: flex; align-items: center;"
                 >
-                    <button>{{ current_user }}</button>
+                    <button 
+                        style="background-color: #007bff; color: white; border: none; border-radius: 50%; font-size: auto; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"
+                    >
+                        {{ current_user.username|slice:":4" }}
+                    </button>
                 </a>
             </div>
+            
         </div>
  
         <div style='padding: 8px;'>
