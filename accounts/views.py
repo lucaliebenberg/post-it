@@ -2,10 +2,17 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView
 from django.views.generic import CreateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 from rest_framework_simplejwt.tokens import RefreshToken
 from accounts.forms import RegisterForm, LoginForm
-from django.views.generic import TemplateView
+from django.views.generic import (
+    TemplateView,
+    DeleteView
+)
+from django.contrib.auth import get_user_model
+
+UserModel = get_user_model()
 
 class CustomRegisterView(CreateView):
     form_class = RegisterForm
@@ -49,3 +56,23 @@ class AccountMenuView(TemplateView):
 
     def get_context_data(self, **kwargs):
         return super().get_context_data(**kwargs)
+    
+class DeleteAccountView(DeleteView):
+    model = UserModel
+    template_name = "confirm_account_delete.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        print("Account user >> ", user)
+        context["user"] = user
+        return context
+
+    def post(self, request, *args, **kwargs):
+        action = request.POST.get("action")
+        user_acc = self.get_object()
+
+        if action == "delete_user":
+            user = self.get_object
+            user.delete()
+            return redirect(reverse_lazy("login"))

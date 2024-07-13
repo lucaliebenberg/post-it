@@ -1,7 +1,8 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from accounts.views import (
-    AccountMenuView
+    AccountMenuView,
+    DeleteAccountView
 )
 from accounts.views import (
     CustomResetPasswordView
@@ -33,5 +34,10 @@ urlpatterns = [
         "account/menu/",
         AccountMenuView.as_view(), 
         name="account_menu"
+    ),
+    path(
+        "delete_profile/<int:pk>/",
+        DeleteAccountView.as_view(),
+        name="delete_account"
     )
 ]

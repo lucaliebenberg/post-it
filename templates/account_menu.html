@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Menu</title>
+    <title>PostIt | Account Menu</title>
 </head>
 <body>
-    <a href='history.back()'> <- Go back </a>
+    <a href="{% url 'index' %}""> <- Go back </a>
     <h1>Account Menu</h1>
     <div>
         <p>Email: {{ user.email }}</p>
         <p>
-            <span style='text-align: right; font-size: 15px;'><a href="{% url 'reset_password' %}">Forgot password?</a></span>
+            <span style='text-align: right; font-size: 15px;'><a href="{% url 'accounts:reset_password' %}">Forgot password?</a></span>
         </p>
         <p>
             <form 
@@ -25,7 +25,15 @@
                 </form>
         </p>
         <p>
-            <a>Delete Account</a>
+            <form 
+                id="delete-account" 
+                action="{% url 'accounts:delete_account' pk=user.pk %}" 
+                method="post" 
+                
+                >
+                    {% csrf_token %}
+                    <button type="submit" name='action' value='delete_user'>Delete account</button>
+                </form>
         </p>
     </div>
 </body>
