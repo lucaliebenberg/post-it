@@ -29,7 +29,6 @@ urlpatterns = [
             ),
          name='password_reset_complete'
         ),
-
     path(
         "account/menu/",
         AccountMenuView.as_view(), 

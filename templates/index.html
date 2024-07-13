@@ -13,16 +13,12 @@
                 <h1 style='margin: 0; padding-left: 12px;'>Post It</h1> 
              </nav>
              <div style='padding: 8px;'>
-                <!-- logout form -->
-                <form 
-                id="logout-form" 
-                action="{% url 'logout' %}" 
-                method="post" 
-                
+                <a 
+                id="account-menu" 
+                href="{% url 'accounts:account_menu' %}" 
                 >
-                    {% csrf_token %}
-                    <button type="submit">Logout</button>
-                </form>
+                    <button>{{ current_user }}</button>
+                </a>
             </div>
         </div>
  
