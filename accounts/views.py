@@ -57,9 +57,11 @@ class AccountMenuView(TemplateView):
     def get_context_data(self, **kwargs):
         return super().get_context_data(**kwargs)
     
+
 class DeleteAccountView(DeleteView):
     model = UserModel
     template_name = "confirm_account_delete.html"
+    success_url = reverse_lazy("index")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -68,9 +70,8 @@ class DeleteAccountView(DeleteView):
         context["user"] = user
         return context
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         action = request.POST.get("action")
-        user_acc = self.get_object()
 
         if action == "delete_user":
             user = self.get_object
