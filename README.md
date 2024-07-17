@@ -202,23 +202,6 @@ Windows
     - Download and install PostgreSQL from [postgresql.org](https://www.postgresql.org/download/windows/). During installation, you can set the password for the PostgreSQL superuser (postgres) and choose the components you want to install. Ensure that "pgAdmin 4" is selected.
     - After installation, start the PostgreSQL service using `pgAdmin 4` or the PostgreSQL shell.
 
-
-## Features
-
-### Creating a Post
-1. Log in to the application.
-2. Navigate to the "Create Post" form.
-3. Fill out the form and submit.
-
-### Editing a Post
-1. Navigate to the post you want to edit.
-2. Click the "Edit" button.
-3. Make your changes and confirm edit.
-
-### Deleting a Post
-1. Navigate to the post you want to delete, that you have ownership of.
-2. Click the "Delete" button and confirm deletion.
-
 ## Configuration
 - **Database:** Default is PostgreSQL. For production, configure the database settings in `postit/settings.py`.
 - **Static files:** Collect static files using `python manage.py collectstatic`.
@@ -227,5 +210,3 @@ Windows
 
 Ideation board <br/> 
 https://www.figma.com/board/Jb9WCXvCkIHV0mGRlaqA96/PostIt---Ideation-Space?node-id=0-1&t=s4LQHB0vwWZCUu8w-0 
-
-
