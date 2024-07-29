@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# TODO: commnt out before prod deployment
+# TODO: for Docker deployment, comment out before production deployment
 DEBUG = os.environ.get("DEBUG", "True")
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
