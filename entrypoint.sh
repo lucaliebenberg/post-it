@@ -1,7 +1,15 @@
 #!/bin/sh
 
-# python manage.py makemigrations postms accounts authors jobposts
-python manage.py migrate --no-input
+
+echo "Waiting for database..."
+
+while ! nc -z $DB_HOST $DB_PORT; do
+    sleep 0.1
+done
+
+echo "Database started"
+
+python manage.py migrate
 python manage.py collectstatic --no-input
 
-gunicorn postms.wsgi:application --bind 0.0.0.0:8000
+exec gunicorn postms.wsgi:application --bind 0.0.0.0:8000
