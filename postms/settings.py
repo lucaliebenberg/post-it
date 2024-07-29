@@ -26,7 +26,7 @@ DEBUG = os.environ.get("DEBUG", "True")
 
 ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
 
-AUTH_USER_MODEL = "accounts.User"
+AUTH_USER_MODEL = os.environ.get("AUTH_USER_MODEL")
 
 # Application definition
 
