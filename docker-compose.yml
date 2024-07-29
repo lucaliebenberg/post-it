@@ -1,15 +1,17 @@
 version: '3.9'
 
 services:
+  
   django_gunicorn:
     volumes:
-      - static/static
+      - static:/static
     env_file:
       - .env
     build:
       context: .
     ports:
       - "8000:8000"
+  
   nginx:
     build: ./nginx
     volumes:
@@ -18,6 +20,19 @@ services:
       - "80:80"
     depends_on:
       - django_gunicorn
+  
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_HOST=${DB_HOST}
+      - POSTGRES_PORT=${DB_PORT}
+
 
 volumes:
   static:
+  postgres_data:

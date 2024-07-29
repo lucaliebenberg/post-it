@@ -6,7 +6,7 @@ COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
 # COPY ./postms ./accounts ./jobposts ./authors  /app/
-COPY ./postms  /app/
+COPY .  /app
 
 WORKDIR /app
 
