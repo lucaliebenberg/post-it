@@ -10,7 +10,7 @@ gunicorn==22.0.0
 packaging==24.1
 phonenumbers==8.13.38
 pillow==10.3.0
-psycopg2==2.9.9
 psycopg2-binary==2.9.9
 PyJWT==2.8.0
 sqlparse==0.5.0
+backports.zoneinfo;python_version<"3.12"
