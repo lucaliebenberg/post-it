@@ -24,7 +24,11 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # TODO: for Docker deployment, comment out before production deployment
 DEBUG = os.environ.get("DEBUG", "True")
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+# For Docker
+ALLOWED_HOSTS = ['*']
+
+# For standard
+# ALLOWED_HOSTS = ["198.211.99.20", "localhost", "127.0.0.1"]
 
 AUTH_USER_MODEL = "accounts.User"
 
