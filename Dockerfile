@@ -1,6 +1,6 @@
 FROM python:3.9
 
-RUN apt-get update && apt-get install -y netcat-openbsd && apt-get -y nginx && apt-get clean
+RUN apt-get update && apt-get install -y netcat-openbsd && apt-get clean
 
 RUN pip install --upgrade pip
 
