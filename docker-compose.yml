@@ -15,7 +15,7 @@ services:
     # networks:
     #   - app_network
     ports:
-      - "9000:9000"
+      - "90:5000"
     depends_on:
       - db
   
