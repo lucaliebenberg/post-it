@@ -10,12 +10,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    # expose:
-    #   - 8000
-    # networks:
-    #   - app_network
-    ports:
-      - "90:5000"
     depends_on:
       - db
   
@@ -24,11 +18,9 @@ services:
     volumes:
       - static:/static
     ports:
-      - "80:8000"
+      - "8080:80"
     depends_on:
       - django_gunicorn
-    # networks:
-    #   - app_network
   
   db:
     image: postgres:13
@@ -42,11 +34,6 @@ services:
       - POSTGRES_PORT=${DB_PORT}
     env_file:
       - .env
-    # networks:
-    #   - app_network
-
-# networks:
-#   app_network
 
 volumes:
   static:
