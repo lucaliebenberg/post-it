@@ -27,9 +27,9 @@ DEBUG = os.environ.get("DEBUG", "True")
 # ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
 ALLOWED_HOSTS = ['192.168.65.1', 'localhost', '127.0.0.1', 'django_gunicorn', '172.18.0.3']
 
-CSRF_TRUSTED_ORIGINS = ['http://*.127.0.0.1, http://*.localhost']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1, http://localhost']
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 AUTH_USER_MODEL = os.environ.get("AUTH_USER_MODEL")
 
