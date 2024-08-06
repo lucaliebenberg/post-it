@@ -14,9 +14,6 @@ except Exception:
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
@@ -25,15 +22,15 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "True")
 
 # ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
-ALLOWED_HOSTS = ['192.168.65.1', 'localhost', '127.0.0.1', 'django_gunicorn', '172.18.0.3']
+ALLOWED_HOSTS=['*']
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django_gunicorn', '172.18.0.3']
 
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1, http://localhost']
+# CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1, http://localhost']
+CSRF_TRUSTED_ORIGINS = ['http://.*', 'http://localhost', 'http://localhost:8080']
 
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 AUTH_USER_MODEL = os.environ.get("AUTH_USER_MODEL")
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
