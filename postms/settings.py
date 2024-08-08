@@ -11,24 +11,18 @@ try:
 except Exception:
     pass
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# TODO: for Docker deployment, comment out before production deployment
+# TODO: for Docker deployment, comment out before production deployment (security warning)
 DEBUG = os.environ.get("DEBUG", "True")
 
-# ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
 ALLOWED_HOSTS=['*']
 # ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django_gunicorn', '172.18.0.3']
 
-# CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1, http://localhost']
 CSRF_TRUSTED_ORIGINS = ['http://.*', 'http://localhost', 'http://localhost:8080']
-
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 AUTH_USER_MODEL = os.environ.get("AUTH_USER_MODEL")
 
@@ -115,10 +109,6 @@ DATABASES = {
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -134,10 +124,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -147,14 +133,9 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_ROOT = '/static/'
 STATIC_URL = '/static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
