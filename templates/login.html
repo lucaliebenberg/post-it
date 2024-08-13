@@ -6,24 +6,39 @@
     <title>PostIt | Log In</title>
 </head>
 
-<div style='display:flex; flex-direction: column; justify-content: center; margin: 0 auto; min-height: 100vh;'>
-    <div style='width: 100%; height: 100%; display: flex; justify-content: center; margin: 0 auto; text-align: center;'>
-        <form method='post' action="{% url 'login' %}">
-            {% csrf_token %}
-            <p>{{ form.errors }}</p>
-            <h2>Login</h2>
-            <div style='display: flex; flex-direction: column; width: 30vw; gap: 1em; margin-bottom: 1em;'>
-                <input type='text' id='username' name='username' placeholder='Enter your username' style='padding: .3em; border-radius: 8px; border-radius: 8px;' />
-                <input type='password' id='password' name='password' placeholder='Enter your password' style='padding: .3em; border-radius: 8px; border-radius: 8px;' />
-                <span style='text-align: right; font-size: 15px;'><a href="{% url 'accounts:reset_password' %}">Forgot password?</a></span>
-            </div>
+<!-- Parent Container -->
+ <div style='display: flex; flex-direction: row; flex-basis: 50%; height: auto; width: 100%;'>
+     <!-- Left side -->
+      <div style='background-color: red;'>
+        <h1>left side</h1>
+      </div>
 
-            <button type='submit' style='width: 30vw; background-color: black; color: white; border-radius: 8px; padding: .2rem;'>Login</button>
-        </form>
-    </div>
-    <div style='display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin: 0 auto;'>
-        <p>Don't have an account?</p><a href="{% url 'register' %}">Register</a>
-    </div>
-</div>
+      <!-- Right side -->
+       <div>
+        <div style='display:flex; flex-direction: column; justify-content: center; margin: 0 auto; min-height: 100vh;'>
+            <div style='width: 100%; height: 100%; display: flex; justify-content: center; margin: 0 auto; text-align: center;'>
+                <form method='post' action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <p>{{ form.errors }}</p>
+                    <h2>Login</h2>
+                    <p>Enter your email and password below to log into your account</p>
+                    <div style='display: flex; flex-direction: column; width: 30vw; gap: 1em; margin-bottom: 1em;'>
+                        <input type='text' id='username' name='username' placeholder='Enter your username' style='padding: .3em; border-radius: 8px; border-radius: 8px;' />
+                        <input type='password' id='password' name='password' placeholder='Enter your password' style='padding: .3em; border-radius: 8px; border-radius: 8px;' />
+                        <span style='text-align: right; font-size: 15px;'><a href="{% url 'accounts:reset_password' %}">Forgot password?</a></span>
+                    </div>
+        
+                    <button type='submit' style='width: 30vw; background-color: black; color: white; border-radius: 8px; padding: .2rem;'>Login</button>
+                </form>
+            </div>
+            <div style='display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin: 0 auto;'>
+                <p>Don't have an account?</p><a href="{% url 'register' %}">Register</a>
+            </div>
+        </div>
+       </div>
+ </div>
+
 
 </html>
+
+
