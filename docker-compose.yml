@@ -10,14 +10,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      develop:
-        watch:
-          - action: sync
-            path: ./django_gunicorn
-            target: .
-              - node_modules
-          - action: rebuild
-            path: package.json
     depends_on:
       - db
     expose:
