@@ -13,8 +13,39 @@
     <title>Post It</title>
 </head>
 <body style='margin: 0; padding: 0;'>
+
+
+    <!-- Parent Container -->
+<div style='display: flex; flex-direction: row; flex-basis: auto; height: auto; width: 100%; background-color: pink; font-family: Arial, Helvetica, sans-serif;'>
+     
+    <!-- Left side [start] -->
+    <div style='background-color: #18181b; flex-basis: 20%; padding: 1rem;'>
+        <h2 style='color: white;'>Post It</h2>
+        <div style='background-color: red;'>
+            <h1>Left side content</h1>
+        </div>
+    </div>
+    <!-- Left side [end]  -->7
+    
+    <!-- Right side [start] -->
+      <div style='background-color: purple; flex-basis: 80%;'>
+        <div style='display:flex; flex-direction: column; justify-content: center; margin: 0 auto; min-height: 100vh;'>
+            <h1>Right side content</h1>
+        </div>
+      </div>
+    <!-- Right side [end] -->
+
+
+ </div>
+<!-- Parent container [end]  -->
+
+    <!-- ///////////////////////////////////////////////////////////////// -->
+    
+    <!-- Old Dashoard wrapper [start] -->
     <div style='display: flex; flex-direction: column; padding: 0; gap: 2rem;'>
-        <div style='display: flex; flex-direction: row; justify-content: space-between; background-color: cadetblue; '>
+        
+        <!-- Navabar [start] -->
+        <!-- <div style='display: flex; flex-direction: row; justify-content: space-between; background-color: cadetblue; '>
             <nav style="background-color: cadetblue; color: white; margin: 0; padding: 4px;">
                 <h1 style='margin: 0; padding-left: 12px;'>Post It</h1> 
              </nav>
@@ -32,26 +63,29 @@
                     </button>
                 </a>
             </div>
-            
-        </div>
+
+        </div> -->
+        <!-- Navabar [end] --> 
  
-        <div style='padding: 8px;'>
+        <!-- Create Job Post btn [start] -->
+        <!-- <div style='padding: 8px;'>
             <span style='background-color: cadetblue; color: black; color: white; padding: 4px; border-radius: 8px; width: 10vw;'>
                 <a href='{% url "jobposts:create_jobpost"%}' style="text-decoration: none; color: white;">Create Job Post</a>
             </span>
-        </div>
-    </div>
+        </div> -->
+        <!-- Create Job Post btn [end] -->
+    
+    <!-- *** excess diov, maybe matching to 'Old Dashboard wrapper' -->
+    <!-- </div> -->
     
     <!-- JOB POSTINGS BOARD [START] -->
-    <div style='display: flex; flex-direction: row; flex-wrap: wrap; padding: 12px; gap: 2.2rem;'>
+    <!-- <div style='display: flex; flex-direction: row; flex-wrap: wrap; padding: 12px; gap: 2.2rem;'>
         {% for post in posts %}
         <div style='position: relative;;padding: 8px; border: 1px solid black; display: flex; flex-direction: column; width: 40%; border-radius: 12px;'>
 
             {% if user|is_post_author:post %}    
                 <div style='display: flex; justify-content: end; width: auto; padding: 4px;'>
-                        <!-- <button> -->
-                            <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
-                        <!-- </button> -->
+                    <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
                 </div>
             {% endif %}
                             
@@ -74,7 +108,7 @@
 
         </div>
         {% endfor %}
-    </div>
+    </div> -->
     <!-- JOB POSTINGS BOARD [END] -->
 </body>
 
