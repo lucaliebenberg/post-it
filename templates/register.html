@@ -7,7 +7,8 @@
 <title>PostIt | Register</title>
 
 
-<div style='display:flex; flex-direction: column; justify-content: center; margin: 0 auto; min-height: 100vh;'>
+<!-- [start] -->
+<!-- <div style='display:flex; flex-direction: column; justify-content: center; margin: 0 auto; min-height: 100vh;'>
     <div style='width: 100%; height: 100%; display: flex; justify-content: center; margin: 0 auto; text-align: center;'>
         <form method='post' action="{% url 'register' %}">
             {% csrf_token %}
@@ -26,5 +27,52 @@
     <div style='display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin: 0 auto;'>
         <p>Have an account?</p><a href="{% url 'login' %}">Login</a>
     </div>
-</div>
+</div> -->
+<!-- first iteration [end] -->
+
+<!-- Parent Container -->
+<div style='display: flex; flex-direction: row; flex-basis: auto; height: auto; width: 100%; background-color: pink; font-family: Arial, Helvetica, sans-serif;'>
+     
+    <!-- Left side [start] -->
+    <div style='background-color: #18181b; flex-basis: 50%; padding: 1rem;'>
+        <h2 style='color: white;'>Post It</h2>
+    </div>
+    <!-- Left side [end]  -->
+    
+    <!-- Right side [start] -->
+      <div style='background-color: #FFFFFF; flex-basis: 50%;'>
+        <div style='display:flex; flex-direction: column; justify-content: center; margin: 0 auto; min-height: 100vh;'>
+            <div style='width: 100%; height: 100%; display: flex; justify-content: center; margin: 0 auto; text-align: center;'>
+                <form method='post' action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <p>{{ form.errors }}</p>
+                    <h2 style='color: #09090B'>Create an account</h2>
+                    <p style='color: #71717A; '>Enter your email and password below to log into your account</p>
+                    <div style='display: flex; flex-direction: column; width: 30vw; gap: 1em; margin-bottom: 1em;'>
+                        <input type='text' id='username' name='username' placeholder='Enter your username' style='color: #71717A;padding: 8px 10px; border-radius: 8px; border-radius: 8px;' />
+                        <input type='email' id='email' name='email' placeholder='Enter your email' style='color: #71717A;padding: 8px 10px; border-radius: 8px; border-radius: 8px;' />
+                        <input type='password' id='password1' name='password1' placeholder='Enter your password' style='color: #71717A;padding: 8px 10px; border-radius: 8px; border-radius: 8px;' />
+                        <input type='password' id='password2' name='password2' placeholder='Confirm your password' style='color: #71717A;padding: 8px 10px; border-radius: 8px; border-radius: 8px;' />
+                        <!-- <span style='text-align: right; font-size: 15px;'><a href="{% url 'accounts:reset_password' %}" style='text-decoration: none; color: #09090B'>Forgot password?</a></span> -->
+                    </div>
+        
+                    <button type='submit' style='width: 30vw; height: 36px; padding: 12px 10px; background-color: #09090B; color: white; border-radius: 6px;'>Login</button>
+                </form>
+            </div>
+            <div style='display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin: 0 auto;'>
+                <p style='color: #71717A;'>Don't have an account?</p><a href="{% url 'register' %}" style='text-decoration: none; color: #39393e'>Register</a>
+            </div>
+
+            <!-- T's and C's [start] -->
+            <div style='display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin: 0 auto;'>
+                <p style='color: #71717A; max-width: 21rem; text-align: center;'>By clicking 'Create account', you agree to our <a href="" style='text-decoration: none; color: #39393e'>Terms of Service</a> and <a href="" style='text-decoration: none; color: #39393e'>Privacy Policy.</a></p>
+            </div>
+        </div>
+      </div>
+    <!-- Right side [end] -->
+
+
+ </div>
+<!-- Parent container [end]  -->
+
 </html>

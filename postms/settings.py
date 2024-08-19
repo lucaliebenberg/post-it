@@ -20,10 +20,10 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "True")
 
 # Docker
-ALLOWED_HOSTS=['*']
+# ALLOWED_HOSTS=['*']
 
 # Development
-# ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django_gunicorn', '172.18.0.3']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django_gunicorn', '172.18.0.3']
 
 CSRF_TRUSTED_ORIGINS = ['http://.*', 'http://localhost', 'http://localhost:8080']
 
