@@ -10,31 +10,49 @@
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous"></script>
     <script src="semantic/dist/semantic.min.js"></script>
-    <title>Post It</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Post It | Just post it 📃</title>
 </head>
 <body style='margin: 0; padding: 0;'>
 
 
     <!-- Parent Container -->
-<div style='display: flex; flex-direction: row; flex-basis: auto; height: auto; width: 100%; background-color: pink; font-family: Arial, Helvetica, sans-serif;'>
+    <div class='flex flex-col h-auto w-[100%] bg-purple-500 font-sans'>
      
-    <!-- Left side [start] -->
-    <div style='background-color: #18181b; flex-basis: 20%; padding: 1rem;'>
-        <h2 style='color: white;'>Post It</h2>
-        <div style='background-color: red;'>
-            <h1>Left side content</h1>
-        </div>
-    </div>
-    <!-- Left side [end]  -->7
-    
-    <!-- Right side [start] -->
-      <div style='background-color: purple; flex-basis: 80%;'>
-        <div style='display:flex; flex-direction: column; justify-content: center; margin: 0 auto; min-height: 100vh;'>
-            <h1>Right side content</h1>
+    <!-- Main [start] -->
+      <div class='bg-green-400 basis-[80%] min-h-[100vh] w-[100%]'>
+        <div class='flex flex-col h-[100vh] w-[100%]'>
+            <div class='bg-red-600 flex-grow-[1] p-[1em]'>
+                <div class='flex flex-row justify-between w-auto'>
+                    <button class='bg-cyan-400 text-black p-1 rounded-md w-auto mb-3'>
+                        <a href='{% url "jobposts:create_jobpost"%}' class='no-underline text-white p-2 w-auto flex m-auto'> + Post It</a>
+                    </button>
+
+                    <a 
+                    id="account-menu" 
+                    href="{% url 'accounts:account_menu' %}" 
+                    class='no-underline flex align-middle'
+                >
+                    <button class='bg-[#007bff] text-white border-none p-3 rounded-[50%] text-auto w-[50px] h-[50px] flex align-middle justify-center'
+                    >
+                        {{ current_user.username|slice:":4" }}
+                    </button>
+                    </a>
+                </div>
+                <div class='w-[100%]'>
+                    <hr />
+                </div>
+            </div>
+            
+            <!-- Job postings [start] -->
+            <div class='bg-green-400 flex-grow-[24] m-auto p-[1em]'>
+                <h4 class='font-sans text-[1.4rem] text-white '>There are currently no job postings!</h4>
+            </div>
+            <!-- Job postings [end] -->
+
         </div>
       </div>
-    <!-- Right side [end] -->
-
+    <!-- Main [end] -->
 
  </div>
 <!-- Parent container [end]  -->
