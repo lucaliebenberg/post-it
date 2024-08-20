@@ -15,8 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Post It | Just post it 📃</title>
 </head>
-<body style='margin: 0; padding: 0;'>
-
+<body class='m-0 p-0'>
 
     <!-- Parent Container -->
     <div class='flex flex-col h-auto w-[100%] bg-purple-500 font-sans'>
@@ -24,145 +23,70 @@
     <!-- Main [start] -->
       <div class='bg-green-400 basis-[80%] min-h-[100vh] w-[100%]'>
         <div class='flex flex-col h-[100vh] w-[100%]'>
-            <div class='bg-red-600 flex-grow-[1] p-[1em]'>
+            
+            <!-- Navbar [start] -->
+            <nav class='bg-red-600 flex-grow-[1] p-[1em] sticky'>
                 <div class='flex flex-row justify-between w-auto'>
-                    
                     <button class='bg-cyan-400 text-black p-1 rounded-md w-auto mb-3'>
                         <a href='{% url "jobposts:create_jobpost"%}' class='no-underline text-white p-2 w-auto flex m-auto'> + Post It</a>
                     </button>
-
                     <a 
                     id="account-menu" 
                     href="{% url 'accounts:account_menu' %}" 
                     class='no-underline flex align-middle'
                 >
-                    <button class='bg-[#007bff] text-white border-none p-3 rounded-[50%] text-auto w-[50px] h-[50px] flex align-middle justify-center'
-                    >
-                        {{ current_user.username|slice:":4" }}
-                    </button>
+                    <div class="avatar online mb-2">
+                        <!-- {{ current_user.username }} -->
+                        <div class="w-14 rounded-full">
+                          <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                        </div>
+                    </div>
                     </a>
                 </div>
                 <div class='w-[100%]'>
                     <hr />
                 </div>
-            </div>
+            </nav>
+            <!-- Navbar [end] -->
             
             <!-- Job postings [start] -->
-            <div class='bg-green-400 flex-grow-[24] m-auto p-[1em]'>
+            <div class='bg-green-400 flex flex-col flex-grow-[24] gap-4 m-auto p-[1em]'>
                 {% if posts == 0 %}
                     <h4 class='font-sans text-[1.4rem] text-white '>There are currently no job postings!</h4>
                 {% endif %}
 
                 {% if posts %}
                     {% for post in posts %}
-                    <div style='position: relative;;padding: 8px; border: 1px solid black; display: flex; flex-direction: column; width: 40%; border-radius: 12px;'>
-            
-                        {% if user|is_post_author:post %}    
-                            <div style='display: flex; justify-content: end; width: auto; padding: 4px;'>
-                                <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
+                    <!-- New Post [start] -->
+                    <a href="{% url 'jobposts:detail_jobpost' pk=post.pk %}" class=''>
+                        <div class="card card-side bg-base-100 shadow-xl">
+                            <figure class='w-[30vw] h-auto'>
+                            <img
+                                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                                class=''
+                                alt="{{ post.creator}}" />
+                            </figure>
+                            <div class="card-body">
+                            <h2 class="card-title">
+                                {{ post.creator }}
+                                {% if user|is_post_author:post %}   
+                                    <div class="badge badge-secondary text-xs">Author</div>
+                                {% endif %}
+                            </h2>
+                            <p class='text-sm'>{{ post.title }}</p>
                             </div>
-                        {% endif %}
-                                        
-                        <a href='{% url "jobposts:detail_jobpost" pk=post.pk %}' style="text-decoration: none; color: black;">
-                        
-                        <span>{{ post.created_at }}</span>
-                        <h2>{{ post.creator }}</h2>
-                        <h3>{{ post.title }}</h3>
-                        <p 
-                        style=
-                        'line-clamp: 1;
-                        text-overflow: ellipsis;
-                        word-wrap: break-word;
-                        overflow: hidden;
-                        max-height: 3.6em;
-                        line-height: 1.8em; 
-                        '>{{ post.description }}</p>
-                        </a>
-
-                    </div>
+                        </div>
+                    </a>
+                    <!-- New Post [end] -->
                     {% endfor %}
                 {% endif %}
             </div>
             <!-- Job postings [end] -->
-
         </div>
       </div>
     <!-- Main [end] -->
-
  </div>
 <!-- Parent container [end]  -->
-
-    <!-- ///////////////////////////////////////////////////////////////// -->
-    
-    <!-- Old Dashoard wrapper [start] -->
-    <div style='display: flex; flex-direction: column; padding: 0; gap: 2rem;'>
-        
-        <!-- Navabar [start] -->
-        <!-- <div style='display: flex; flex-direction: row; justify-content: space-between; background-color: cadetblue; '>
-            <nav style="background-color: cadetblue; color: white; margin: 0; padding: 4px;">
-                <h1 style='margin: 0; padding-left: 12px;'>Post It</h1> 
-             </nav>
-
-            <div style="padding: 8px; display: flex; align-items: center;">
-                <a 
-                    id="account-menu" 
-                    href="{% url 'accounts:account_menu' %}" 
-                    style="text-decoration: none; display: flex; align-items: center;"
-                >
-                    <button 
-                        style="background-color: #007bff; color: white; border: none; border-radius: 50%; font-size: auto; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"
-                    >
-                        {{ current_user.username|slice:":4" }}
-                    </button>
-                </a>
-            </div>
-
-        </div> -->
-        <!-- Navabar [end] --> 
- 
-        <!-- Create Job Post btn [start] -->
-        <!-- <div style='padding: 8px;'>
-            <span style='background-color: cadetblue; color: black; color: white; padding: 4px; border-radius: 8px; width: 10vw;'>
-                <a href='{% url "jobposts:create_jobpost"%}' style="text-decoration: none; color: white;">Create Job Post</a>
-            </span>
-        </div> -->
-        <!-- Create Job Post btn [end] -->
-    
-    <!-- *** excess diov, maybe matching to 'Old Dashboard wrapper' -->
-    <!-- </div> -->
-    
-    <!-- JOB POSTINGS BOARD [START] -->
-    <!-- <div style='display: flex; flex-direction: row; flex-wrap: wrap; padding: 12px; gap: 2.2rem;'>
-        {% for post in posts %}
-        <div style='position: relative;;padding: 8px; border: 1px solid black; display: flex; flex-direction: column; width: 40%; border-radius: 12px;'>
-
-            {% if user|is_post_author:post %}    
-                <div style='display: flex; justify-content: end; width: auto; padding: 4px;'>
-                    <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
-                </div>
-            {% endif %}
-                            
-
-            <a href='{% url "jobposts:detail_jobpost" pk=post.pk %}' style="text-decoration: none; color: black;">
-            
-            <span>{{ post.created_at }}</span>
-            <h2>{{ post.creator }}</h2>
-            <h3>{{ post.title }}</h3>
-            <p 
-            style=
-            'line-clamp: 1;
-             text-overflow: ellipsis;
-             word-wrap: break-word;
-            overflow: hidden;
-            max-height: 3.6em;
-            line-height: 1.8em; 
-             '>{{ post.description }}</p>
-            </a>    
-
-        </div>
-        {% endfor %}
-    </div> -->
-    <!-- JOB POSTINGS BOARD [END] -->
 </body>
 
 </html>
