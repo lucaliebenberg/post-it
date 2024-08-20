@@ -35,7 +35,7 @@ class DefaultView(TemplateView):
 @method_decorator(login_required, name="dispatch")
 class CreateJobPost(CreateView):
     model = JobPost
-    template_name = "create_jobpost"
+    template_name = "create_jobpost.html"
     fields = (
         "contact_num",
         "title",
@@ -53,7 +53,7 @@ class CreateJobPost(CreateView):
 @method_decorator(login_required, name="dispatch")
 class DetailView(DetailView):
     model = JobPost
-    template_name = "detail_jobpost"
+    template_name = "detail_jobpost.html"
     fields = '__all__'
 
     def get_context_data(self, **kwargs) -> dict[str]:
@@ -67,7 +67,7 @@ class DetailView(DetailView):
 @method_decorator(login_required, name="dispatch")
 class DeleteJobPost(DeleteView):
     model = JobPost
-    template_name = "delete_jobpost"
+    template_name = "delete_jobpost.html"
     fields = '__all__'
     success_url = reverse_lazy("index")
 

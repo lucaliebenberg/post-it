@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -24,6 +26,7 @@
         <div class='flex flex-col h-[100vh] w-[100%]'>
             <div class='bg-red-600 flex-grow-[1] p-[1em]'>
                 <div class='flex flex-row justify-between w-auto'>
+                    
                     <button class='bg-cyan-400 text-black p-1 rounded-md w-auto mb-3'>
                         <a href='{% url "jobposts:create_jobpost"%}' class='no-underline text-white p-2 w-auto flex m-auto'> + Post It</a>
                     </button>
@@ -46,7 +49,39 @@
             
             <!-- Job postings [start] -->
             <div class='bg-green-400 flex-grow-[24] m-auto p-[1em]'>
-                <h4 class='font-sans text-[1.4rem] text-white '>There are currently no job postings!</h4>
+                {% if posts == 0 %}
+                    <h4 class='font-sans text-[1.4rem] text-white '>There are currently no job postings!</h4>
+                {% endif %}
+
+                {% if posts %}
+                    {% for post in posts %}
+                    <div style='position: relative;;padding: 8px; border: 1px solid black; display: flex; flex-direction: column; width: 40%; border-radius: 12px;'>
+            
+                        {% if user|is_post_author:post %}    
+                            <div style='display: flex; justify-content: end; width: auto; padding: 4px;'>
+                                <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
+                            </div>
+                        {% endif %}
+                                        
+                        <a href='{% url "jobposts:detail_jobpost" pk=post.pk %}' style="text-decoration: none; color: black;">
+                        
+                        <span>{{ post.created_at }}</span>
+                        <h2>{{ post.creator }}</h2>
+                        <h3>{{ post.title }}</h3>
+                        <p 
+                        style=
+                        'line-clamp: 1;
+                        text-overflow: ellipsis;
+                        word-wrap: break-word;
+                        overflow: hidden;
+                        max-height: 3.6em;
+                        line-height: 1.8em; 
+                        '>{{ post.description }}</p>
+                        </a>
+
+                    </div>
+                    {% endfor %}
+                {% endif %}
             </div>
             <!-- Job postings [end] -->
 
