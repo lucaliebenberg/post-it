@@ -50,7 +50,7 @@
             <!-- Navbar [end] -->
             
             <!-- Job postings [start] -->
-            <div class='bg-green-400 flex flex-col flex-grow-[24] gap-4 m-auto p-[1em]'>
+            <div class='bg-green-400 flex flex-col flex-grow-[24] gap-4 gap m-auto md:gap-x-4 p-[1em] md:flex-row md:justify-start md:flex-wrap md:gap-4'>
                 {% if posts == 0 %}
                     <h4 class='font-sans text-[1.4rem] text-white '>There are currently no job postings!</h4>
                 {% endif %}
@@ -60,7 +60,7 @@
                     <!-- New Post [start] -->
                     <a href="{% url 'jobposts:detail_jobpost' pk=post.pk %}" class=''>
                         <div class="card card-side bg-base-100 shadow-xl">
-                            <figure class='w-[30vw] h-auto'>
+                            <figure class='w-[30vw] h-auto md:w-[10vw]'>
                             <img
                                 src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
                                 class=''
