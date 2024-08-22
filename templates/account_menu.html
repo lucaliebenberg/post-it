@@ -3,38 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PostIt | Account Menu</title>
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>PostIt | Profile</title>
 </head>
 <body>
-    <a href="{% url 'index' %}""> <- Go back </a>
-    <h1>Account Menu</h1>
+    <a href="{% url 'index' %}"> 
+        <- Go back 
+    </a>
+
+    <!-- Profile top container [start] -->
     <div>
-        <p>Email: {{ user.email }}</p>
-        <p>
+        <h1 class='text-[1.2rem] font-bold'>Profile</h1>
+         <div class='flex flex-row'>
+            <div class="avatar w-[5em] h-[5em]">
+                  <img class="rounded-full" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+              </div>
+              
+              <div class='flex flex-col'>
+                <p class='font-bold'>{{ user.username }}</p>
+                <p class='font-normal'>{{ user.email }}</p>
+              </div>
+         </div>
+    </div>
+    <!-- Profile top container [end] -->
+
+    <!-- Profile bottom container [start] -->
+     <div class='flex flex-col h-auto w-[100%]'>
+        <ul class="menu bg-base-200 rounded-box w-full">
+            <li class="menu-title text-gray-400 text-[1rem]">Account Settings</li>
+            <li>
+                <a>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                    Personal Information
+                </a>
+            </li>
+            <li>
+                <a>
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>                  Password & Security
+                </a>
+            </li>
+            <li>
+                <a>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                    Log Out
+                </a>
+            </li>
+            <li>
+                <a>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                    Delete Account
+                </a>
+            </li>
+          </ul>
+        
+        <!-- Forgot password [start] -->
+        <!-- <p>
             <span style='text-align: right; font-size: 15px;'><a href="{% url 'accounts:reset_password' %}">Forgot password?</a></span>
-        </p>
-        <p>
-            <form 
-                id="logout-form" 
-                action="{% url 'logout' %}" 
-                method="post" 
-                
-                >
-                    {% csrf_token %}
-                    <button type="submit">Logout</button>
-                </form>
-        </p>
-        <p>
-            <form 
-                id="delete-account" 
-                action="{% url 'accounts:delete_account' pk=user.pk %}" 
-                method="post" 
-                
-                >
-                    {% csrf_token %}
-                    <button type="submit" name='action' value='delete_user'>Delete account</button>
-                </form>
-        </p>
+        </p> -->
+        <!-- Forgot password [end] -->
+
+    <!-- Profile bottom container [end] -->
     </div>
 </body>
 </html>
