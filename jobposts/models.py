@@ -31,3 +31,4 @@ class JobPost(models.Model):
         editable=False,
         auto_now=True,
     )
+    

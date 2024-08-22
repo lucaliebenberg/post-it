@@ -31,10 +31,7 @@ class CustomLoginView(LoginView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-
         user = self.request.user
-        access_token = self.get_access_token(user)
-
         return HttpResponseRedirect(self.success_url)
     
     def get_access_token(self, user):
@@ -66,7 +63,6 @@ class DeleteAccountView(DeleteView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
-        print("Account user >> ", user)
         context["user"] = user
         return context
 
@@ -77,3 +73,26 @@ class DeleteAccountView(DeleteView):
             user = self.get_object
             user.delete()
             return redirect(reverse_lazy("login"))
+        
+
+class AccountManagementView(TemplateView):
+    template_name = "account_management.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        current_user = self.request.user
+        context['user'] = current_user
+        return context
+
+class PasswordSecurityView(TemplateView, PasswordResetView, SuccessMessageMixin):
+    template_name = "pasword_and_security.html"
+    email_template_name = 'password_reset_email.html'
+    subject_template_name = 'password_reset_subject'
+    success_message = "We have emailed you. Check your mail !!!"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+    
+    def post(self):
+        pass

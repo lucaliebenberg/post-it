@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     # APPS
     "postms",
     "accounts",
-    'authors',
+    "references",
+    "authors",
     "jobposts",
 ]
 
