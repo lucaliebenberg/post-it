@@ -1,8 +1,7 @@
-from django.forms import BaseModelForm
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.views.generic import (
     TemplateView,
     CreateView, 
@@ -10,7 +9,7 @@ from django.views.generic import (
     DetailView
 )
 from jobposts.models import JobPost
-from accounts.models import User
+from references.models import Reference
 
 @method_decorator(login_required, name="dispatch")
 class DefaultView(TemplateView):
@@ -25,11 +24,8 @@ class DefaultView(TemplateView):
             creator = post.creator
             context['post'] = post
             context['creator'] = creator
-            print("Post creator >> ", post.creator)
-
         context["posts"] = job_posts
         context["current_user"] = current_user
-
         return context
     
 @method_decorator(login_required, name="dispatch")
@@ -46,9 +42,17 @@ class CreateJobPost(CreateView):
     def form_valid(self, form):
         form.instance.creator = self.request.user
         self.object = form.save()
-
         return HttpResponseRedirect(reverse_lazy("index"))
     
+class CreateReference(CreateView):
+    model = Reference
+    template_name = "create_jobpost.html"
+    fields = (
+        "name",
+        "number"
+    )
+    success_url = reverse_lazy("index")
+
 
 @method_decorator(login_required, name="dispatch")
 class DetailView(DetailView):

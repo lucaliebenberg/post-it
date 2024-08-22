@@ -6,7 +6,6 @@ from accounts.views import (
     CustomRegisterView,
     CustomLoginView,
     CustomLogoutView,
-    CustomResetPasswordView
 )
 
 # ERROR HANDLERS
