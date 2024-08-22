@@ -2,94 +2,94 @@
 {% load widget_tweaks %}
 {% load permission_filter %}
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous"></script>
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
     <script src="semantic/dist/semantic.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Post It | Post Detail</title>
-</head>
-<body>
+  </head>
+  <body>
 
     <div style='width: 100%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; margin: 0 auto; text-align: center;'>
 
         <!-- New -->
-        <div class="breadcrumbs text-sm p-10">
-            <ul>
-              <li class=''>
-                <a href="{% url 'index' %}">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    class="h-4 w-4 stroke-current mr-1">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
-                  </svg>
-                  dashboard
-                </a>
-              </li>
-              <li class=''>
-                <a>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    class="h-4 w-4 stroke-current mr-1">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
-                  </svg>
-                  {{ post.creator }}
-                </a>
-              </li>
-            </ul>
-          </div>
+      <div class="breadcrumbs text-sm p-10">
+        <ul>
+          <li class=''>
+            <a href="{% url 'index' %}">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="h-4 w-4 stroke-current mr-1">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+              </svg>
+              dashboard
+            </a>
+          </li>
+          <li class=''>
+            <a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="h-4 w-4 stroke-current mr-1">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+              </svg>
+              {{ post.creator }}
+            </a>
+          </li>
+        </ul>
+      </div>
         <!--  -->
 
-        <form method='post'>
-            {% csrf_token %}
+      <form method='post'>
+        {% csrf_token %}
 
             <!-- New  -->
-            <div class="card bg-base-100 w-96 shadow-xl">
-                {% for error in field.errors %}
-                    <span class='help-block'>{{ error }}</span>
-                {% endfor %}
-                <figure class="px-10 pt-10">
-                  <img
-                    src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                    alt="{{ post.creator }}"
-                    class="rounded-xl" />
-                </figure>
-                <div class="card-body items-start text-left">
-                  <h2 class="card-title">{{ post.creator }}</h2>
-                  <p>{{ post.title }}</p>
-                  <p>{{ post.description }}</p>
-                  <div class="badge badge-primary">{{ post.created_at }}</div>
-                  <div class="card-actions">
-                    <button class="btn btn-primary">Contact Now</button>
-                  </div>
-                </div>
-              </div>
+        <div class="card bg-base-100 w-96 shadow-xl">
+          {% for error in field.errors %}
+            <span class='help-block'>{{ error }}</span>
+          {% endfor %}
+          <figure class="px-10 pt-10">
+            <img
+              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+              alt="{{ post.creator }}"
+              class="rounded-xl" />
+          </figure>
+          <div class="card-body items-start text-left">
+            <h2 class="card-title">{{ post.creator }}</h2>
+            <p>{{ post.title }}</p>
+            <p>{{ post.description }}</p>
+            <div class="badge badge-primary">{{ post.created_at }}</div>
+            <div class="card-actions">
+              <button class="btn btn-primary">Contact Now</button>
+            </div>
+          </div>
+        </div>
             <!--  -->
-                <div>
-                    {% if user|is_post_author:post %}
-                        <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
-                    {% endif %}
-                </div>
-            </form>
+        <div>
+          {% if user|is_post_author:post %}
+            <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
+          {% endif %}
+        </div>
+      </form>
     </div>
-</body>
+  </body>
 </html>

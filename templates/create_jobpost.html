@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 {% load widget_tweaks %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Post It | Create Post</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+        <script src="semantic/dist/semantic.min.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Post It | Create Post</title>
+    </head>
+    <body>
 
-    <div class='w-[100%] h-[100%] w-auto flex flex-col justify-center bg-red-300'>
-        
-        <form method='post' class='w-auto h-[100vh] flex justify-center align-middle m-auto bg-blue-300 p-1'>
-            {% csrf_token %}
-            <div class="card bg-base-100 w-95 shadow-xl mt-auto mb-auto">
-                <div class="card-body">
-                  <h1 class="card-title">Create Post</h1>
-                  <p class='mb-2 text-gray-400'>Add your job post to the post it board</p>
-                  <div style='display: flex; flex-direction: column; width: 100%; gap: 1em; margin: 0 auto;'>
-                    {% for error in field.errors %}
-                    <span class='help-block'>{{ error }}</span>
-                    {% endfor %}
-                    <label class="input input-bordered flex items-center gap-2">
-                        <input type="text" id='title' name='title' class="grow" placeholder="Post title" />
-                    </label>
+        <div class='w-[100%] h-[100%] w-auto flex flex-col justify-center bg-red-300'>
 
-                    <label class="input input-bordered flex items-center gap-2">
-                        <input type="text" id='contact_num' name='contact_num' class="grow" placeholder="Contact number" />
-                    </label>
+            <form method='post' class='w-auto h-[100vh] flex justify-center align-middle m-auto bg-blue-300 p-1'>
+                {% csrf_token %}
+                <div class="card bg-base-100 w-95 shadow-xl mt-auto mb-auto">
+                    <div class="card-body">
+                        <h1 class="card-title">Create Post</h1>
+                        <p class='mb-2 text-gray-400'>Add your job post to the post it board</p>
+                        <div style='display: flex; flex-direction: column; width: 100%; gap: 1em; margin: 0 auto;'>
+                            {% for error in field.errors %}
+                                <span class='help-block'>{{ error }}</span>
+                            {% endfor %}
+                            <label class="input input-bordered flex items-center gap-2">
+                                <input type="text" id='title' name='title' class="grow" placeholder="Post title" />
+                            </label>
 
-                    <textarea class="textarea textarea-bordered text-[1rem]" id='description' name='description' placeholder="Post Description"></textarea>
+                            <label class="input input-bordered flex items-center gap-2">
+                                <input type="text" id='contact_num' name='contact_num' class="grow" placeholder="Contact number" />
+                            </label>
 
+                            <textarea class="textarea textarea-bordered text-[1rem]" id='description' name='description' placeholder="Post Description"></textarea>
+
+                        </div>
+
+                        <div class="card-actions justify-start mt-4">
+                            <a class="btn btn-ghost" href="{% url 'index' %}">Cancel</a>
+                            <button class="btn bg-[#18181B] text-white" type="submit">Create</button>
+                        </div>
+
+                    </div>
                 </div>
-                
-                <div class="card-actions justify-start mt-4">
-                    <a class="btn btn-ghost" href="{% url 'index' %}">Cancel</a>
-                    <button class="btn bg-[#18181B] text-white" type="submit">Create</button>
-                </div>
+            </form>
+        </div>
 
-                </div>
-              </div>
-        </form>
-    </div>
-
-</body>
+    </body>
 </html>

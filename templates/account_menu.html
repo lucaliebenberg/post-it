@@ -1,120 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>PostIt | Profile</title>
-</head>
-<body>
-    <a href="{% url 'index' %}"> 
-        <- Go back 
-    </a>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+        <script src="semantic/dist/semantic.min.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Post It | Profile</title>
+    </head>
+    <body>
+
+    <!-- Navigation [start] -->
+        <div class="breadcrumbs text-sm p-5 bg-[#23237E] text-white">
+            <ul>
+                <li class=''>
+                    <a href="{% url 'index' %}">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            class="h-4 w-4 stroke-current mr-1">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                        </svg>
+                        dashboard
+                    </a>
+                </li>
+                <li class=''>
+                    <a>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            class="h-4 w-4 stroke-current mr-1">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                        </svg>
+                        profile
+                    </a>
+                </li>
+            </ul>
+        </div>
+    <!-- Navigation [end] -->
 
     <!-- Profile top container [start] -->
-    <div>
-        <h1 class='text-[1.2rem] font-bold'>Profile</h1>
-         <div class='flex flex-row'>
-            <div class="avatar w-[5em] h-[5em]">
-                  <img class="rounded-full" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-              </div>
-              
-              <div class='flex flex-col'>
-                <p class='font-bold'>{{ user.username }}</p>
-                <p class='font-normal'>{{ user.email }}</p>
-              </div>
-         </div>
-    </div>
+        <div class='p-6 bg-[#23237E] text-white'>
+            <div class='flex flex-row gap-4'>
+                <div class="avatar w-[5em] h-[5em]">
+                    <img class="rounded-full" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                </div>
+
+                <div class='flex flex-col pt-[.75rem]'>
+                    <p class='font-bold'>{{ user.username }}</p>
+                    <p class='font-normal'>{{ user.email }}</p>
+                </div>
+            </div>
+        </div>
     <!-- Profile top container [end] -->
 
     <!-- Profile bottom container [start] -->
-     <div class='flex flex-col h-auto w-[100%]'>
-        <ul class="menu bg-base-200 rounded-box w-full">
-            <li class="menu-title text-gray-400 text-[1rem]">Account Settings</li>
-            <li>
-                <a>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-                    Personal Information
-                </a>
-            </li>
-            <li>
-                <a>
-                <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                    </svg>                  Password & Security
-                </a>
-            </li>
-            <li>
-                <a>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-                    Log Out
-                </a>
-            </li>
-            <li>
-                <a>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-                    Delete Account
-                </a>
-            </li>
-          </ul>
-        
+        <div class='flex flex-col h-[100vh] w-[100%] gap-5 mt-[-.75em]'>
+            <ul class="menu bg-white rounded-box w-full h-full gap-4">
+                <li class="menu-title text-gray-400 text-[1rem]">Account Settings</li>
+                <li>
+                    <a>
+                        <svg id='User_Folder_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+
+
+                            <g transform="matrix(0.77 0 0 0.77 12 12)" >
+                                <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" translate(-17, -16)" d="M 6 3 L 6 29 L 26 29 L 26 13.4375 L 27.71875 11.71875 L 28 11.40625 L 28 3 Z M 8 5 L 22 5 L 22 11.40625 L 22.28125 11.71875 L 24 13.4375 L 24 27 L 8 27 Z M 24 5 L 26 5 L 26 10.5625 L 25 11.5625 L 24 10.5625 Z M 16 11 C 13.800781 11 12 12.800781 12 15 C 12 16.113281 12.476563 17.117188 13.21875 17.84375 C 11.886719 18.746094 11 20.28125 11 22 L 13 22 C 13 20.332031 14.332031 19 16 19 C 17.667969 19 19 20.332031 19 22 L 21 22 C 21 20.28125 20.113281 18.746094 18.78125 17.84375 C 19.523438 17.117188 20 16.113281 20 15 C 20 12.800781 18.199219 11 16 11 Z M 16 13 C 17.117188 13 18 13.882813 18 15 C 18 16.117188 17.117188 17 16 17 C 14.882813 17 14 16.117188 14 15 C 14 13.882813 14.882813 13 16 13 Z" stroke-linecap="round" />
+                            </g>
+                        </svg>
+                        Account Management
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <svg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+
+
+                            <g transform="matrix(0.71 0 0 0.71 12 12)" >
+                                <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" translate(-18.5, -18)" d="M 6 4 L 6 9 L 5 9 L 5 11 L 8 11 L 8 10 L 8 9 L 8 6 L 24 6 L 24 16.349609 C 21.672669 17.175324 20 19.39207 20 22 C 20 22.34 20.029844 22.68 20.089844 23 L 17.089844 26 L 8 26 L 8 23 L 6 23 L 6 28 L 16 28 L 16 32 L 22 32 L 22 30 L 22.910156 30 L 25.009766 27.910156 C 25.329766 27.970156 25.66 28 26 28 C 29.31 28 32 25.31 32 22 C 32 18.69 29.31 16 26 16 L 26 4 L 6 4 z M 16 8 C 14.35503 8 13 9.3550302 13 11 L 13 12 L 12 12 L 12 13 L 12 18 L 20 18 L 20 12 L 19 12 L 19 11 C 19 9.3550302 17.64497 8 16 8 z M 16 10 C 16.56503 10 17 10.43497 17 11 L 17 12 L 15 12 L 15 11 C 15 10.43497 15.43497 10 16 10 z M 6 12 L 6 14 L 5 14 L 5 16 L 8 16 L 8 15 L 8 14 L 8 12 L 6 12 z M 14 14 L 18 14 L 18 16 L 14 16 L 14 14 z M 6 17 L 6 19 L 5 19 L 5 21 L 8 21 L 8 20 L 8 19 L 8 17 L 6 17 z M 26 18 C 28.21 18 30 19.79 30 22 C 30 24.21 28.21 26 26 26 L 25.919922 26 C 25.389922 25.99 24.879922 25.869922 24.419922 25.669922 L 22.089844 28 L 20 28 L 20 30 L 18 30 L 18 27.910156 L 22.330078 23.580078 C 22.120078 23.100078 22 22.56 22 22 C 22 21.63 22.050391 21.269687 22.150391 20.929688 C 22.610391 19.239687 24.16 18 26 18 z M 27 20 C 26.448 20 26 20.448 26 21 C 26 21.552 26.448 22 27 22 C 27.552 22 28 21.552 28 21 C 28 20.448 27.552 20 27 20 z" stroke-linecap="round" />
+                            </g>
+                        </svg>                  Password & Security
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}">
+                        <svg id='Logout_Rounded_Left_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+
+
+                            <g transform="matrix(0.83 0 0 0.83 12 12)" >
+                                <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" translate(-15.98, -16)" d="M 16 4 C 11.949219 4 8.359375 6.011719 6.1875 9.09375 L 7.8125 10.25 C 9.621094 7.679688 12.609375 6 16 6 C 21.535156 6 26 10.464844 26 16 C 26 21.535156 21.535156 26 16 26 C 12.609375 26 9.625 24.320313 7.8125 21.75 L 6.1875 22.90625 C 8.359375 25.988281 11.949219 28 16 28 C 22.617188 28 28 22.617188 28 16 C 28 9.382813 22.617188 4 16 4 Z M 8.65625 11.28125 L 4.65625 15.28125 L 3.96875 16 L 4.65625 16.71875 L 8.65625 20.71875 L 10.09375 19.28125 L 7.8125 17 L 20 17 L 20 15 L 7.8125 15 L 10.09375 12.71875 Z" stroke-linecap="round" />
+                            </g>
+                        </svg>
+                        Log Out
+                    </a>
+                </li>
+
+                <!-- Delete Account [start] -->
+                <!-- <li>
+                    <a>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Delete Account
+                    </a>
+                </li> -->
+                <!-- Delete Account [end] -->
+            </ul>
+
         <!-- Forgot password [start] -->
-        <!-- <p>
-            <span style='text-align: right; font-size: 15px;'><a href="{% url 'accounts:reset_password' %}">Forgot password?</a></span>
-        </p> -->
+            <!-- <p>
+                <span style='text-align: right; font-size: 15px;'><a href="{% url 'accounts:reset_password' %}">Forgot password?</a></span>
+            </p> -->
         <!-- Forgot password [end] -->
 
     <!-- Profile bottom container [end] -->
-    </div>
-</body>
+        </div>
+    </body>
 </html>

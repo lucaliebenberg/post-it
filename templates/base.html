@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Post It{% endblock %}</title>
-    {% block extra_head %}{% endblock %}
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Post It{% endblock %}</title>
+        {% block extra_head %}{% endblock %}
+    </head>
+    <body>
 
-    <main>
-        {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                    <div class="message {{ message.tags }}">{{ message }}</div>
-                {% endfor %}
-            </div>
-        {% endif %}
+        <main>
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="message {{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
-        {% block content %}{% endblock %}
+            {% block content %}{% endblock %}
         </main>
-</body>
+    </body>
 </html>

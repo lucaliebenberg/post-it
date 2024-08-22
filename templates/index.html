@@ -1,92 +1,92 @@
 <!DOCTYPE html>
 {% load permission_filter %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Post It | Just post it 📃</title>
-</head>
-<body class='m-0 p-0'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+        <script src="semantic/dist/semantic.min.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Post It | Just post it 📃</title>
+    </head>
+    <body class='m-0 p-0'>
 
     <!-- Parent Container -->
-    <div class='flex flex-col h-auto w-[100%] bg-purple-500 font-sans'>
-     
-    <!-- Main [start] -->
-      <div class='bg-green-400 basis-[80%] min-h-[100vh] w-[100%]'>
-        <div class='flex flex-col h-[100vh] w-[100%]'>
-            
-            <!-- Navbar [start] -->
-            <nav class='bg-red-600 flex-grow-[1] p-[1em] sticky'>
-                <div class='flex flex-row justify-between w-auto'>
-                    <button class='bg-cyan-400 text-black p-1 rounded-md w-auto mb-3'>
-                        <a href='{% url "jobposts:create_jobpost"%}' class='no-underline text-white p-2 w-auto flex m-auto'> + Post It</a>
-                    </button>
-                    <a 
-                    id="account-menu" 
-                    href="{% url 'accounts:account_menu' %}" 
-                    class='no-underline flex align-middle'
-                >
-                    <div class="avatar online mb-2">
-                        <!-- {{ current_user.username }} -->
-                        <div class="w-14 rounded-full">
-                          <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                        </div>
-                    </div>
-                    </a>
-                </div>
-                <div class='w-[100%]'>
-                    <hr />
-                </div>
-            </nav>
-            <!-- Navbar [end] -->
-            
-            <!-- Job postings [start] -->
-            <div class='bg-green-400 flex flex-col flex-grow-[24] gap-4 gap m-auto md:gap-x-4 p-[1em] md:flex-row md:justify-start md:flex-wrap md:gap-4'>
-                {% if posts == 0 %}
-                    <h4 class='font-sans text-[1.4rem] text-white '>There are currently no job postings!</h4>
-                {% endif %}
+        <div class='flex flex-col h-auto w-[100%] bg-purple-500 font-sans'>
 
-                {% if posts %}
-                    {% for post in posts %}
-                    <!-- New Post [start] -->
-                    <a href="{% url 'jobposts:detail_jobpost' pk=post.pk %}" class=''>
-                        <div class="card card-side bg-base-100 shadow-xl">
-                            <figure class='w-[30vw] h-auto md:w-[10vw]'>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-                                class=''
-                                alt="{{ post.creator}}" />
-                            </figure>
-                            <div class="card-body">
-                            <h2 class="card-title">
-                                {{ post.creator }}
-                                {% if user|is_post_author:post %}   
-                                    <div class="badge badge-secondary text-xs">Author</div>
-                                {% endif %}
-                            </h2>
-                            <p class='text-sm'>{{ post.title }}</p>
-                            </div>
+    <!-- Main [start] -->
+            <div class='bg-green-400 basis-[80%] min-h-[100vh] w-[100%]'>
+                <div class='flex flex-col h-[100vh] w-[100%]'>
+
+            <!-- Navbar [start] -->
+                    <nav class='bg-red-600 flex-grow-[1] p-[1em] sticky'>
+                        <div class='flex flex-row justify-between w-auto'>
+                            <button class='bg-cyan-400 text-black p-1 rounded-md w-auto mb-3'>
+                                <a href='{% url "jobposts:create_jobpost"%}' class='no-underline text-white p-2 w-auto flex m-auto'> + Post It</a>
+                            </button>
+                            <a
+                                id="account-menu"
+                                href="{% url 'accounts:account_menu' %}"
+                                class='no-underline flex align-middle'
+                            >
+                                <div class="avatar online mb-2">
+                        <!-- {{ current_user.username }} -->
+                                    <div class="w-14 rounded-full">
+                                        <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                        <div class='w-[100%]'>
+                            <hr />
+                        </div>
+                    </nav>
+            <!-- Navbar [end] -->
+
+            <!-- Job postings [start] -->
+                    <div class='bg-green-400 flex flex-col flex-grow-[24] gap-4 gap m-auto md:gap-x-4 p-[1em] md:flex-row md:justify-start md:flex-wrap md:gap-4'>
+                        {% if posts == 0 %}
+                            <h4 class='font-sans text-[1.4rem] text-white '>There are currently no job postings!</h4>
+                        {% endif %}
+
+                        {% if posts %}
+                            {% for post in posts %}
+                    <!-- New Post [start] -->
+                                <a href="{% url 'jobposts:detail_jobpost' pk=post.pk %}" class=''>
+                                    <div class="card card-side bg-base-100 shadow-xl">
+                                        <figure class='w-[30vw] h-auto md:w-[10vw]'>
+                                            <img
+                                                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                                                class=''
+                                                alt="{{ post.creator}}" />
+                                        </figure>
+                                        <div class="card-body">
+                                            <h2 class="card-title">
+                                                {{ post.creator }}
+                                                {% if user|is_post_author:post %}
+                                                    <div class="badge badge-secondary text-xs">Author</div>
+                                                {% endif %}
+                                            </h2>
+                                            <p class='text-sm'>{{ post.title }}</p>
+                                        </div>
+                                    </div>
+                                </a>
                     <!-- New Post [end] -->
-                    {% endfor %}
-                {% endif %}
-            </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
             <!-- Job postings [end] -->
-        </div>
-      </div>
+                </div>
+            </div>
     <!-- Main [end] -->
- </div>
+        </div>
 <!-- Parent container [end]  -->
-</body>
+    </body>
 
 </html>
