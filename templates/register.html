@@ -3,6 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+        <script src="semantic/dist/semantic.min.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <title>Post It | Register</title>
 
@@ -22,8 +31,8 @@
                     <form method='post' action="{% url 'register' %}">
                         {% csrf_token %}
                         <p>{{ form.errors }}</p>
-                        <h2 style='color: #09090B'>Create an account</h2>
-                        <p style='color: #71717A; '>Enter your email and password below to log into your account</p>
+                        <h2 style='color: #09090B'></h2>
+                        <p style='color: #71717A; '></p>
                         <div style='display: flex; flex-direction: column; width: 30vw; gap: 1em; margin-bottom: 1em;'>
                             <input type='text' id='username' name='username' placeholder='Enter your username' style='color: #71717A;padding: 8px 10px; border-radius: 8px; border-radius: 8px;' />
                             <input type='email' id='email' name='email' placeholder='Enter your email' style='color: #71717A;padding: 8px 10px; border-radius: 8px; border-radius: 8px;' />
@@ -36,17 +45,70 @@
                     </form>
                 </div>
                 <div style='display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin: 0 auto;'>
-                    <p style='color: #71717A;'>Have an account?</p><a href="{% url 'login' %}" style='text-decoration: none; color: #39393e'>Log In</a>
+                    <p style='color: #71717A;'>Have an account?</p><a href="{% url 'login' %}" style='text-decoration: none; color: #39393e'>Register</a>
                 </div>
 
             <!-- T's and C's [start] -->
                 <div style='display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin: 0 auto;'>
                     <p style='color: #71717A; max-width: 21rem; text-align: center;'>By clicking 'Create account', you agree to our <a href="" style='text-decoration: none; color: #39393e'>Terms of Service</a> and <a href="" style='text-decoration: none; color: #39393e'>Privacy Policy.</a></p>
                 </div>
+            <!-- T's and C's [end] -->
             </div>
         </div>
     <!-- Right side [end] -->
 
+
+    </div>
+<!-- Parent container [end]  -->
+
+<!-- Parent Container -->
+<div class='flex flex-col justify-center h-auto w-[100%] font-sans md:flex-row'>
+        
+    <!-- Left side [start] -->
+        <div class='bg-[#18181B] p-[1em]'>
+            <h2 class='text-white font-medium pt-2'>Post It</h2>
+        </div>
+    <!-- Left side [end]  -->
+
+    <!-- Right side [start] -->
+        <div class='bg-[#FFFFFF] w-full'>
+            <div style='display:flex; flex-direction: column; justify-content: center; margin: 0 auto; min-height: 100vh;'>
+                <div style='width: 100%; height: 100%; display: flex; justify-content: center; margin: 0 auto; text-align: center;'>
+                    <form method='post' action="{% url 'register' %}">
+                        {% csrf_token %}
+                        <p>{{ form.errors }}</p>
+                        <h2 class='text-[#09090B] text-[2rem] font-bold'>Create an account</h2>
+                        <p style='color: #71717A;'>Enter your email and password below to log into your account</p>
+                        <div class='w-full gap-[3em] mb-[1em] p-2'>
+                            <label class="input input-bordered flex items-center gap-2 mb-4">
+                                <input type="text" id='username' name='username' class="grow" placeholder="Enter your username" />
+                            </label>
+                            <label class="input input-bordered flex items-center gap-2 mb-4">
+                                <input type='password' id='password' name='password' class="grow" placeholder="Enter your password" />
+                            </label>
+                            <div class='w-full flex justify-end p-2'>
+                                <a href="{% url 'accounts:reset_password' %}" style='text-decoration: none; color: #09090B'>Forgot password?</a>
+                            </div>
+                        </div>
+
+                        <button type='submit' class='h-[36px] w-[30%] m-auto flex justify-center align-middle bg-[#09090B] text-white rounded-md mb-4 pt-1'>
+                            Register
+                        </button>
+                    </form>
+                </div>
+
+            <!-- T's and C's [start] -->
+            <div style='display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin: 0 auto;'>
+                <p style='color: #71717A; max-width: 21rem; text-align: center;'>By clicking 'Create account', you agree to our <a href="" style='text-decoration: none; color: #39393e'>Terms of Service</a> and <a href="" style='text-decoration: none; color: #39393e'>Privacy Policy.</a></p>
+            </div>
+        <!-- T's and C's [end] -->
+                <div style='display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin: 0 auto;'>
+                    <p style='color: #71717A;'>Have an account?</p>
+                    <a href="{% url 'login' %}" style='text-decoration: none; color: #39393e'>Login</a>
+                </div>
+            </div>
+        </div>
+    <!-- Right side [end] -->
 
     </div>
 <!-- Parent container [end]  -->

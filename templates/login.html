@@ -3,38 +3,56 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+        <script src="semantic/dist/semantic.min.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
         <title>Post It | Log In</title>
     </head>
 
 <!-- Parent Container -->
-    <div style='display: flex; flex-direction: row; flex-basis: auto; height: auto; width: 100%; background-color: pink; font-family: Arial, Helvetica, sans-serif;'>
+    <div class='flex flex-col justify-center h-auto w-[100%] font-sans md:flex-row'>
 
     <!-- Left side [start] -->
-        <div style='background-color: #18181b; flex-basis: 50%; padding: 1rem;'>
-            <h2 style='color: white;'>Post It</h2>
+        <div class='bg-[#18181B] p-[1em]'>
+            <h2 class='text-white font-medium pt-2'>Post It</h2>
         </div>
     <!-- Left side [end]  -->
 
     <!-- Right side [start] -->
-        <div style='background-color: #FFFFFF; flex-basis: 50%;'>
+        <div class='bg-[#FFFFFF] w-full'>
             <div style='display:flex; flex-direction: column; justify-content: center; margin: 0 auto; min-height: 100vh;'>
                 <div style='width: 100%; height: 100%; display: flex; justify-content: center; margin: 0 auto; text-align: center;'>
                     <form method='post' action="{% url 'login' %}">
                         {% csrf_token %}
                         <p>{{ form.errors }}</p>
-                        <h2 style='color: #09090B'>Log In</h2>
+                        <h2 class='text-[#09090B] text-[2rem] font-bold'>Log In</h2>
                         <p style='color: #71717A; '>Enter your email and password below to log into your account</p>
-                        <div style='display: flex; flex-direction: column; width: 30vw; gap: 1em; margin-bottom: 1em;'>
-                            <input type='text' id='username' name='username' placeholder='Enter your username' style='color: #71717A;padding: 8px 10px; border-radius: 8px; border-radius: 8px;' />
-                            <input type='password' id='password' name='password' placeholder='Enter your password' style='color: #71717A;padding: 8px 10px; border-radius: 8px; border-radius: 8px;' />
-                            <span style='text-align: right; font-size: 15px;'><a href="{% url 'accounts:reset_password' %}" style='text-decoration: none; color: #09090B'>Forgot password?</a></span>
+                        <div class='w-full gap-[3em] mb-[1em] p-2'>
+                            <label class="input input-bordered flex items-center gap-2 mb-4">
+                                <input type="text" id='username' name='username' class="grow" placeholder="Enter your username" />
+                            </label>
+                            <label class="input input-bordered flex items-center gap-2 mb-4">
+                                <input type='password' id='password' name='password' class="grow" placeholder="Enter your password" />
+                            </label>
+                            <div class='w-full flex justify-end p-2'>
+                                <a href="{% url 'accounts:reset_password' %}" style='text-decoration: none; color: #09090B'>Forgot password?</a>
+                            </div>
                         </div>
 
-                        <button type='submit' style='width: 30vw; height: 36px; padding: 12px 10px; background-color: #09090B; color: white; border-radius: 6px;'>Login</button>
+                        <button type='submit' class='h-[36px] w-[30%] m-auto flex justify-center align-middle bg-[#09090B] text-white rounded-md mb-4 pt-1'>
+                            Log In
+                        </button>
                     </form>
                 </div>
                 <div style='display: flex; flex-direction: row; align-items: center; gap: 0.5em; margin: 0 auto;'>
-                    <p style='color: #71717A;'>Don't have an account?</p><a href="{% url 'register' %}" style='text-decoration: none; color: #39393e'>Register</a>
+                    <p style='color: #71717A;'>Don't have an account?</p>
+                    <a href="{% url 'register' %}" style='text-decoration: none; color: #39393e'>Register</a>
                 </div>
             </div>
         </div>
@@ -44,5 +62,3 @@
 <!-- Parent container [end]  -->
 
 </html>
-
-
