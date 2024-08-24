@@ -19,8 +19,8 @@
     <div class='flex flex-col justify-center h-auto w-[100%] font-sans md:flex-row'>
 
     <!-- Left side [start] -->
-        <div class='bg-[#18181B] p-[1em]'>
-            <h2 class='text-white font-medium pt-2'>Post It</h2>
+        <div class='bg-[#18181B] p-[1em] md:pr-[3.2rem] md:w-[9vw]'>
+            <h2 class='text-white font-medium pt-2 inline-block md:inline-block'>Post It</h2>
         </div>
     <!-- Left side [end]  -->
 
@@ -34,14 +34,44 @@
                         <h2 class='text-[#09090B] text-[2rem] font-bold'>Log In</h2>
                         <p style='color: #71717A; '>Enter your information to to log in</p>
                         <div class='w-full gap-[3em] mb-[1em] p-2'>
-                            <label class="input input-bordered flex items-center gap-2 mb-4">
+
+                            <label class="input input-bordered flex items-center gap-2 mb-3">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 16 16"
+                                    fill="currentColor"
+                                    class="h-4 w-4 opacity-70">
+                                    <path
+                                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+                                </svg>
                                 <input type="text" id='username' name='username' class="grow" placeholder="Enter your username" />
+                            </label>
+                            <label class="input input-bordered flex items-center gap-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 16 16"
+                                    fill="currentColor"
+                                    class="h-4 w-4 opacity-70">
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <input type="password" id="password" name="password" class="grow" placeholder="Enter your password" />
+                            </label>
+
+                            <!-- Old Inputs [start] -->
+                            <!-- <label class="input input-bordered flex items-center gap-2 mb-4">
+                                <input type="text"  class="grow" placeholder="Enter your username" />
                             </label>
                             <label class="input input-bordered flex items-center gap-2 mb-4">
                                 <input type='password' id='password' name='password' class="grow" placeholder="Enter your password" />
-                            </label>
+                            </label> -->
+                            <!-- Old Inputs [end] -->
+
+
                             <div class='w-full flex justify-end p-2'>
-                                <a href="{% url 'accounts:reset_password' %}" style='text-decoration: none; color: #09090B'>Forgot password?</a>
+                                <a href="{% url 'accounts:reset_password' %}" class='no-underline text-[#59595E] text-[.8rem]'>Forgot password?</a>
                             </div>
                         </div>
 
