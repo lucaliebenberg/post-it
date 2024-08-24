@@ -20,7 +20,7 @@
 
     <!-- Left side [start] -->
         <div class='bg-[#18181B] p-[1em] md:pr-[3.2rem] md:w-[9vw]'>
-            <h2 class='text-white font-medium pt-2 inline-block md:inline-block'>Post It</h2>
+            <h2 class='text-white font-medium pt-2 inline-block md:inline-block md:text-[1.1rem]'>Post It</h2>
         </div>
     <!-- Left side [end]  -->
 
@@ -31,8 +31,8 @@
                     <form method='post' action="{% url 'login' %}">
                         {% csrf_token %}
                         <p>{{ form.errors }}</p>
-                        <h2 class='text-[#09090B] text-[2rem] font-bold'>Log In</h2>
-                        <p style='color: #71717A; '>Enter your information to to log in</p>
+                        <h2 class='text-[#09090B] text-[2.4rem] font-bold mb-1'>Log In</h2>
+                        <p class='text-[#71717A] mb-1'>Enter your information to to log in</p>
                         <div class='w-full gap-[3em] mb-[1em] p-2'>
 
                             <label class="input input-bordered flex items-center gap-2 mb-3">
@@ -59,23 +59,12 @@
                                 </svg>
                                 <input type="password" id="password" name="password" class="grow" placeholder="Enter your password" />
                             </label>
-
-                            <!-- Old Inputs [start] -->
-                            <!-- <label class="input input-bordered flex items-center gap-2 mb-4">
-                                <input type="text"  class="grow" placeholder="Enter your username" />
-                            </label>
-                            <label class="input input-bordered flex items-center gap-2 mb-4">
-                                <input type='password' id='password' name='password' class="grow" placeholder="Enter your password" />
-                            </label> -->
-                            <!-- Old Inputs [end] -->
-
-
                             <div class='w-full flex justify-end p-2'>
                                 <a href="{% url 'accounts:reset_password' %}" class='no-underline text-[#59595E] text-[.8rem]'>Forgot password?</a>
                             </div>
                         </div>
 
-                        <button type='submit' class='h-[36px] w-[30%] m-auto flex justify-center align-middle bg-[#09090B] text-white rounded-md mb-4 pt-1'>
+                        <button type='submit' class='h-[36px] w-full m-auto flex justify-center align-middle bg-[#09090B] text-white rounded-md mb-4 pt-1'>
                             Log In
                         </button>
                     </form>

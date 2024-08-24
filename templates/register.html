@@ -19,7 +19,7 @@
     <div class='flex flex-col justify-center h-full overflow-y-hidden w-[100%] font-sans md:flex-row'>
 
     <!-- Left side [start] -->
-        <div class='bg-[#18181B] p-[1em] md:pr-[3.2rem] md:w-[9vw]'>
+        <div class='bg-[#18181B] p-[1em] md:pr-[3.2rem] md:w-[9vw] md:text-[1.1rem]'>
             <h2 class='text-white font-medium pt-2'>Post It</h2>
         </div>
     <!-- Left side [end]  -->
@@ -31,16 +31,24 @@
                     <form method='post' action="{% url 'register' %}">
                         {% csrf_token %}
                         <p>{{ form.errors }}</p>
-                        <h2 class='text-[#09090B] text-[2rem] font-bold'>Create an account</h2>
-                        <p style='color: #71717A;'>Enter your information to create an account</p>
+                        <h2 class='text-[#09090B] text-[2.4rem] font-bold mb-1'>Create an account</h2>
+                        <p class='text-[#71717A] mb-1'>Enter your information to create an account</p>
                         <div class='w-full gap-[3em] mb-[1em] p-2'>
                             <label class="input input-bordered flex items-center gap-2 mb-4">
-                                <input type="text" id='username' name='username' class="grow" placeholder="Enter your username" />
-                            </label>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 16 16"
+                                  fill="currentColor"
+                                  class="h-4 w-4 opacity-70">
+                                  <path
+                                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+                                </svg>
+                                <input type="text" id='username' name='username' class="grow" placeholder="Enter you username" />
+                              </label>
                             <!-- <label class="input input-bordered flex items-center gap-2 mb-4">
                                 <input type="text"  class="grow" placeholder="Enter your email" />
                             </label> -->
-                            <label class="input input-bordered flex items-center gap-2">
+                            <label class="input input-bordered flex items-center gap-2 mb-4">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 16 16"
@@ -53,7 +61,7 @@
                                 </svg>
                                 <input type="text" id='email' name='email' class="grow" placeholder="Enter your email" />
                             </label>
-                            <label class="input input-bordered flex items-center gap-2">
+                            <label class="input input-bordered flex items-center gap-2 mb-4">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 16 16"
@@ -66,7 +74,7 @@
                                 </svg>
                                 <input type="password" id="password1" name="password1" class="grow" placeholder="Enter your password" />
                             </label>
-                            <label class="input input-bordered flex items-center gap-2">
+                            <label class="input input-bordered flex items-center gap-2 mb-2">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 16 16"
@@ -80,7 +88,7 @@
                                 <input type="password" id="password2" name="password2" class="grow" placeholder="Enter your password" />
                             </label>
                         </div>
-                        <button type='submit' class='h-[36px] w-[30%] m-auto flex justify-center align-middle bg-[#09090B] text-white rounded-md mb-2 pt-1'>
+                        <button type='submit' class='h-[36px] w-full m-auto flex justify-center align-middle bg-[#09090B] text-white rounded-md mb-2 pt-1'>
                             Register
                         </button>
                     </form>
