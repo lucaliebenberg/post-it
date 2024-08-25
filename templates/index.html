@@ -21,11 +21,11 @@
         <div class='flex flex-col h-auto w-[100%] bg-purple-500 font-sans'>
 
     <!-- Main [start] -->
-            <div class='bg-green-400 basis-[80%] min-h-[100vh] w-[100%]'>
+            <div class='bg-white basis-[80%] min-h-[100vh] w-[100%]'>
                 <div class='flex flex-col h-[100vh] w-[100%]'>
 
             <!-- Navbar [start] -->
-                    <nav class='bg-red-600 flex-grow-[1] p-[1em] sticky'>
+                    <nav class='bg-[#23237E] p-[1em] sticky'>
                         <div class='flex flex-row justify-between w-auto'>
                             <button class='bg-cyan-400 text-black p-1 rounded-md w-auto mb-3'>
                                 <a href='{% url "jobposts:create_jobpost"%}' class='no-underline text-white p-2 w-auto flex m-auto'> + Post It</a>
@@ -43,50 +43,56 @@
                                 </div>
                             </a>
                         </div>
-                        <div class='w-[100%]'>
+                        <div class='w-[100%] mb-0'>
                             <hr />
                         </div>
                     </nav>
             <!-- Navbar [end] -->
 
             <!-- Job postings [start] -->
-                    <div class='bg-green-400 flex flex-col flex-grow-[24] gap-4 gap m-auto md:gap-x-4 p-[1em] md:flex-row md:justify-start md:flex-wrap md:gap-4'>
-                        {% if posts == 0 %}
-                            <h4 class='font-sans text-[1.4rem] text-white '>There are currently no job postings!</h4>
-                        {% endif %}
+                    <div class='bg-white flex flex-row gap-4 m-auto md:m-0 md:w-full md:flex-row md:justify-start md:flex-wrap md:gap-4'>
+                        <div class='w-auto md:w-auto md:flex-row md:justify-start md:flex-wrap md:gap-4m'>
+                            <div class="pt-4 mb-4 md:justify-start md:p-4">
+                                <div class="stat-title mt-0 pt-0">Total Posts: {{ posts.count }}</div>
+                            </div>
+                            {% if posts == 0 %}
+                                <h4 class='font-sans text-[1.4rem] text-white md:mt-0 md:pt-0'>There are currently no job postings!</h4>
+                            {% endif %}
 
-                        {% if posts %}
-                            {% for post in posts %}
-                    <!-- New Post [start] -->
-                                <a href="{% url 'jobposts:detail_jobpost' pk=post.pk %}" class=''>
-                                    <div class="card card-side bg-base-100 shadow-xl">
-                                        <figure class='w-[30vw] h-auto md:w-[10vw]'>
-                                            <img
-                                                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-                                                class=''
-                                                alt="{{ post.creator}}" />
-                                        </figure>
-                                        <div class="card-body">
-                                            <h2 class="card-title">
-                                                {{ post.creator }}
-                                                {% if user|is_post_author:post %}
-                                                    <div class="badge badge-secondary text-xs">Author</div>
-                                                {% endif %}
-                                            </h2>
-                                            <p class='text-sm'>{{ post.title }}</p>
-                                        </div>
-                                    </div>
-                                </a>
+                            {% if posts %}
+                                <div class='w-auto h-auto flex flex-col md:w-full md:flex-row md:justify-start md:flex-wrap md:gap-4 md:p-[1rem]'>
+                                    {% for post in posts %}
+                                <!-- New Post [start] -->
+                                        <a href="{% url 'jobposts:detail_jobpost' pk=post.pk %}" class=''>
+                                            <div class="card card-side bg-base-100 shadow-xl">
+                                                <figure class='w-[30vw] h-auto md:w-[10vw]'>
+                                                    <img
+                                                        src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                                                        class=''
+                                                        alt="{{ post.creator}}" />
+                                                </figure>
+                                                <div class="card-body">
+                                                    <h2 class="card-title">
+                                                        {{ post.creator }}
+                                                        {% if user|is_post_author:post %}
+                                                            <div class="badge badge-secondary text-xs">Author</div>
+                                                        {% endif %}
+                                                    </h2>
+                                                    <p class='text-sm'>{{ post.title }}</p>
+                                                </div>
+                                            </div>
+                                        </a>
                     <!-- New Post [end] -->
-                            {% endfor %}
-                        {% endif %}
-                    </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
             <!-- Job postings [end] -->
+                    </div>
                 </div>
-            </div>
     <!-- Main [end] -->
-        </div>
+            </div>
 <!-- Parent container [end]  -->
-    </body>
+        </body>
 
-</html>
+    </html>

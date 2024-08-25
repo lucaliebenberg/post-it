@@ -10,6 +10,14 @@ accounts/__pycache__/
 authors/__pycache__/
 jobposts/__pycache__/
 postms/__pycache__/
+references/__pycache__/
+
+# migrations
+accounts/migrations/*
+authors/migrations/*
+jobposts/migrations/*
+postms/migrations/*
+references/migrations/*
 
 # MacOS
 .DS_Store
