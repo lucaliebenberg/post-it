@@ -27,16 +27,17 @@
             <!-- Navbar [start] -->
                     <nav class='bg-[#23237E] p-[1em] sticky'>
                         <div class='flex flex-row justify-between w-auto'>
-                            <button class='bg-cyan-400 text-black p-1 rounded-md w-auto mb-3'>
-                                <a href='{% url "jobposts:create_jobpost"%}' class='no-underline text-white p-2 w-auto flex m-auto'> + Post It</a>
-                            </button>
+                            {% if current_user|check_user_total_posts:user %}
+                                <button class='bg-cyan-400 text-black p-1 rounded-md w-auto mb-3'>
+                                    <a href='{% url "jobposts:create_jobpost"%}' class='no-underline text-white p-2 w-auto flex m-auto'> + Post It</a>
+                                </button>
+                            {% endif %}
                             <a
                                 id="account-menu"
                                 href="{% url 'accounts:account_menu' %}"
                                 class='no-underline flex align-middle'
                             >
                                 <div class="avatar online mb-2">
-                        <!-- {{ current_user.username }} -->
                                     <div class="w-14 rounded-full">
                                         <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                                     </div>
@@ -60,11 +61,11 @@
                             {% endif %}
 
                             {% if posts %}
-                                <div class='w-auto h-auto flex flex-col md:w-full md:flex-row md:justify-start md:flex-wrap md:gap-4 md:p-[1rem]'>
+                                <div class='w-auto h-auto flex flex-col gap-2 md:w-full md:flex-row md:justify-start md:flex-wrap md:gap-4 md:p-[1rem]'>
                                     {% for post in posts %}
                                 <!-- New Post [start] -->
                                         <a href="{% url 'jobposts:detail_jobpost' pk=post.pk %}" class=''>
-                                            <div class="card card-side bg-base-100 shadow-xl">
+                                            <div class="card card-side bg-base-100 shadow-xl md:w-[31vw]">
                                                 <figure class='w-[30vw] h-auto md:w-[10vw]'>
                                                     <img
                                                         src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
@@ -75,7 +76,7 @@
                                                     <h2 class="card-title">
                                                         {{ post.creator }}
                                                         {% if user|is_post_author:post %}
-                                                            <div class="badge badge-secondary text-xs">Author</div>
+                                                            <div class="badge badge-primary text-xs">Author</div>
                                                         {% endif %}
                                                     </h2>
                                                     <p class='text-sm'>{{ post.title }}</p>
