@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
@@ -8,6 +8,7 @@ from django.views.generic import (
     DeleteView, 
     DetailView
 )
+from jobposts.forms import JobPostForm
 from jobposts.models import JobPost
 from references.models import Reference
 
@@ -19,7 +20,6 @@ class DefaultView(TemplateView):
         context = super(DefaultView, self).get_context_data(**kwargs)
         job_posts = JobPost.objects.all()
         current_user = self.request.user
-
         for post in job_posts:
             creator = post.creator
             context['post'] = post
@@ -31,17 +31,29 @@ class DefaultView(TemplateView):
 @method_decorator(login_required, name="dispatch")
 class CreateJobPost(CreateView):
     model = JobPost
+    form_class = JobPostForm
     template_name = "create_jobpost.html"
-    fields = (
-        "contact_num",
-        "title",
-        "description",
-    )
     success_url = reverse_lazy("index")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.get_object()
+        context['post'] = post
+        return context
     
     def form_valid(self, form):
         form.instance.creator = self.request.user
         self.object = form.save()
+        Reference.objects.create(
+            job_post=self.object,
+            name=form.cleaned_data['reference_name_1'],
+            number=form.cleaned_data['reference_number_1']
+        )
+        Reference.objects.create(
+            job_post=self.object,
+            name=form.cleaned_data['reference_name_2'],
+            number=form.cleaned_data['reference_number_2']
+        )
         return HttpResponseRedirect(reverse_lazy("index"))
     
 class CreateReference(CreateView):
@@ -62,10 +74,13 @@ class DetailView(DetailView):
 
     def get_context_data(self, **kwargs) -> dict[str]:
         context =  super().get_context_data(**kwargs)
-        post = self.get_object
+        post = self.get_object()
         user = self.request.user
+        references_qs = Reference.objects.all().filter(job_post=post)
+        references = list(references_qs)
         context['post'] = post
         context['user'] = user
+        context['references'] = references
         return context
 
 @method_decorator(login_required, name="dispatch")
@@ -83,7 +98,3 @@ class DeleteJobPost(DeleteView):
         post = self.get_object
         context['post'] = post
         return context
-    
-    def get_success_url(self) -> str:
-        return super().get_success_url()
-    

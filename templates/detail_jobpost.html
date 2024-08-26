@@ -78,16 +78,42 @@
             <p>{{ post.title }}</p>
             <p>{{ post.description }}</p>
             <div class="badge badge-primary">{{ post.created_at }}</div>
-            <div class="card-actions">
-              <button class="btn btn-primary">Contact Now</button>
+            <div>
+              {% if references %}
+         
+                  {% for r in references %}
+                    {% if user|check_reference_jobpost_creator:post %}
+                      <div class='flex flex-row justify-between align-middle gap-4'>
+                        <p class='text-sm text-black'><strong>Reference:</strong></p>
+                        <p class='text-sm text-black'>{{ r.name }}</p>
+                        <p class='text-sm text-black'>{{ r.number }}</p>
+                      </div>
+                    {% else %}
+                      <p class='text-sm text-black'>No references have been added</p>
+                {% endif %}
+                {% endfor %}
+              {% endif %}
+
+              {% if references == 0 %}
+                <p class='text-sm text-black'>No references have been added</p>
+              {% endif %}
+
             </div>
+            <div class="card-actions w-full">
+              <button class="btn btn-primary w-full">Contact Now</button>
+            </div>
+            {% if user|is_post_author:post %}
+              <button class="btn btn-error w-full">
+                <a href="{% url 'jobposts:delete_jobpost' pk=post.pk %}" class='w-full'>Delete</a>
+              </button>
+            {% endif %}
           </div>
         </div>
             <!--  -->
         <div>
-          {% if user|is_post_author:post %}
-            <a href='{% url 'jobposts:delete_jobpost' pk=post.pk %}' style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
-          {% endif %}
+          <!-- {% if user|is_post_author:post %}
+            <a href="{% url 'jobposts:delete_jobpost' pk=post.pk %}" style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
+          {% endif %} -->
         </div>
       </form>
     </div>

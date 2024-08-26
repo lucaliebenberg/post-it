@@ -10,6 +10,7 @@ accounts/__pycache__/
 authors/__pycache__/
 jobposts/__pycache__/
 postms/__pycache__/
+postms/templatetags/__pycache__/
 references/__pycache__/
 
 # migrations
