@@ -18,14 +18,13 @@
   </head>
   <body>
 
-    <div style='width: 100%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; margin: 0 auto; text-align: center;'>
-
+    <div class='w-[100%] min-height-[100vh] flex flex-col justify-center m-auto text-center overflow-x-hidden'>
         <!-- Navigation [start] -->
       <div class="breadcrumbs text-sm p-10">
         <ul>
           <li class=''>
             <a href="{% url 'index' %}">
-              <svg
+              <!-- <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -35,35 +34,22 @@
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
-              </svg>
+              </svg> -->
+              <span class='mr-2'>
+                «
+              </span>
               dashboard
-            </a>
-          </li>
-          <li class=''>
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                class="h-4 w-4 stroke-current mr-1">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
-              </svg>
-              {{ post.creator }}
             </a>
           </li>
         </ul>
       </div>
       <!-- Navigation [end] -->
 
-      <form method='post'>
+      <form method='post' class='overflow-hidden'>
         {% csrf_token %}
 
             <!-- New  -->
-        <div class="card bg-base-100 w-96 shadow-xl">
+        <div class="card bg-base-100 w-[100%] shadow-xl overflow-x-hidden">
           {% for error in field.errors %}
             <span class='help-block'>{{ error }}</span>
           {% endfor %}
@@ -80,17 +66,17 @@
             <div class="badge badge-primary">{{ post.created_at }}</div>
             <div>
               {% if references %}
-         
-                  {% for r in references %}
-                    {% if user|check_reference_jobpost_creator:post %}
-                      <div class='flex flex-row justify-between align-middle gap-4'>
-                        <p class='text-sm text-black'><strong>Reference:</strong></p>
-                        <p class='text-sm text-black'>{{ r.name }}</p>
-                        <p class='text-sm text-black'>{{ r.number }}</p>
-                      </div>
-                    {% else %}
-                      <p class='text-sm text-black'>No references have been added</p>
-                {% endif %}
+
+                {% for r in references %}
+                  {% if user|check_reference_jobpost_creator:post %}
+                    <div class='flex flex-row justify-between align-middle gap-4'>
+                      <p class='text-sm text-black'><strong>Reference:</strong></p>
+                      <p class='text-sm text-black'>{{ r.name }}</p>
+                      <p class='text-sm text-black'>{{ r.number }}</p>
+                    </div>
+                  {% else %}
+                    <p class='text-sm text-black'>No references have been added</p>
+                  {% endif %}
                 {% endfor %}
               {% endif %}
 

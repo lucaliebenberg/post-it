@@ -18,11 +18,11 @@
     <body class='m-0 p-0'>
 
     <!-- Parent Container -->
-        <div class='flex flex-col h-auto w-[100%] bg-purple-500 font-sans'>
+        <div class='flex flex-col h-auto w-[100%] bg-purple-500 font-sans md:overflow-y-hidden'>
 
     <!-- Main [start] -->
-            <div class='bg-white basis-[80%] min-h-[100vh] w-[100%]'>
-                <div class='flex flex-col h-[100vh] w-[100%]'>
+            <div class='bg-white basis-[80%] h-atuo md:min-h-[80vh] w-[100%]'>
+                <div class='flex flex-col h-[100%] md:h-[95vh] w-[100%]'>
 
             <!-- Navbar [start] -->
                     <nav class='bg-[#23237E] p-[1em] sticky'>
@@ -51,10 +51,10 @@
             <!-- Navbar [end] -->
 
             <!-- Job postings [start] -->
-                    <div class='bg-white flex flex-row gap-4 m-auto md:m-0 md:w-full md:flex-row md:justify-start md:flex-wrap md:gap-4'>
+                    <div class='bg-white flex flex-row gap-4 m-auto pb-4 md:m-0 md:w-full md:flex-row md:justify-start md:flex-wrap md:gap-4'>
                         <div class='w-auto md:w-auto md:flex-row md:justify-start md:flex-wrap md:gap-4m'>
-                            <div class="pt-4 mb-4 md:justify-start md:p-4">
-                                <div class="stat-title mt-0 pt-0">Total Posts: {{ posts.count }}</div>
+                            <div class="pt-4 md:justify-start md:p-2">
+                                <div class="stat-title mt-0 pt-0 md:pl-2">Posts on page: {{ posts.count }} [{{posts}}]</div>
                             </div>
                             {% if posts == 0 %}
                                 <h4 class='font-sans text-[1.4rem] text-white md:mt-0 md:pt-0'>There are currently no job postings!</h4>
@@ -94,6 +94,38 @@
     <!-- Main [end] -->
             </div>
 <!-- Parent container [end]  -->
+ <!-- Footer pagination [start] -->
+            <div class='bg-[#23237E] text-white flex flex-row justify-center align-middle m-auto w-[100%]'>
+                <!-- {% if page_obj.has_previous %}
+                    <a href="?page={{page_obj.previous_page_number}}"
+                       class="btn btn-secondary mx-2">Previous</a>
+                {% endif %} -->
+
+                <!-- <a href="?page=1" class="btn btn-secondary">First</a> -->
+
+                {% for num in page_obj.paginator.page_range %}
+                    {% if num == page_obj.number %}
+                        <span class="current-page mt-auto mb-auto underline-light-200">{{ num }}</span>
+                    {% else %}
+                        <a href="?page={{num}}" class="btn btn-default mx-2 py-2">
+                            {{ num }}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+
+                <!-- <a href="?page={{page_obj.paginator.num_pages}}"
+                   class="btn btn-secondary mx-2">
+                    Last
+                </a> -->
+
+                <!-- {% if page.has_next %}
+                    <a href="?page={{page_obj.next_page_number}}"
+                       class="btn btn-secondary mx-2">
+                        Next
+                    </a>
+                {% endif %} -->
+            </div>
+            <!-- Footer pagination [end] -->
         </body>
 
     </html>

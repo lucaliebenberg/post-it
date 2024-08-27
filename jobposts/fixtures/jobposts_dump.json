@@ -1,0 +1,145 @@
+[
+    {
+        "model": "jobposts.jobpost",
+        "pk": 1,
+        "fields": {
+            "creator": 1,
+            "contact_num": "0712345678",
+            "title": "Handyman Required",
+            "description": "Need a handyman for minor repairs around the house.",
+            "created_at": "2024-08-25T12:00:00Z"
+        }
+    },
+    {
+        "model": "jobposts.jobpost",
+        "pk": 2,
+        "fields": {
+            "creator": 2,
+            "contact_num": "0823456789",
+            "title": "Painter Needed",
+            "description": "Looking for a painter to repaint my living room.",
+            "created_at": "2024-08-26T08:30:00Z"
+        }
+    },
+    {
+        "model": "jobposts.jobpost",
+        "pk": 3,
+        "fields": {
+            "creator": 3,
+            "contact_num": "0734567890",
+            "title": "Plumber Required",
+            "description": "Need a plumber to fix a leaking tap.",
+            "created_at": "2024-08-27T09:15:00Z"
+        }
+    },
+    {
+        "model": "jobposts.jobpost",
+        "pk": 4,
+        "fields": {
+            "creator": 2,
+            "contact_num": "0745678901",
+            "title": "Electrician Needed",
+            "description": "Looking for an electrician to install new lighting fixtures.",
+            "created_at": "2024-08-27T11:45:00Z"
+        }
+    },
+    {
+        "model": "jobposts.jobpost",
+        "pk": 5,
+        "fields": {
+            "creator": 2,
+            "contact_num": "0756789012",
+            "title": "Carpenter Required",
+            "description": "Need a carpenter to build a custom bookshelf.",
+            "created_at": "2024-08-28T10:00:00Z"
+        }
+    },
+    {
+        "model": "jobposts.jobpost",
+        "pk": 6,
+        "fields": {
+            "creator": 2,
+            "contact_num": "0767890123",
+            "title": "Gardener Needed",
+            "description": "Looking for a gardener to maintain my lawn.",
+            "created_at": "2024-08-28T14:30:00Z"
+        }
+    },
+    {
+        "model": "jobposts.jobpost",
+        "pk": 7,
+        "fields": {
+            "creator": 2,
+            "contact_num": "0778901234",
+            "title": "Cleaner Required",
+            "description": "Need a cleaner for weekly house cleaning.",
+            "created_at": "2024-08-29T08:00:00Z"
+        }
+    },
+    {
+        "model": "jobposts.jobpost",
+        "pk": 8,
+        "fields": {
+            "creator": 2,
+            "contact_num": "0789012345",
+            "title": "Mover Needed",
+            "description": "Looking for movers to help with a house move.",
+            "created_at": "2024-08-29T10:15:00Z"
+        }
+    },
+    {
+        "model": "jobposts.jobpost",
+        "pk": 9,
+        "fields": {
+            "creator": 2,
+            "contact_num": "0790123456",
+            "title": "Roofer Required",
+            "description": "Need a roofer to repair roof leaks.",
+            "created_at": "2024-08-30T09:00:00Z"
+        }
+    },
+    {
+        "model": "jobposts.jobpost",
+        "pk": 10,
+        "fields": {
+            "creator": 2,
+            "contact_num": "0711234567",
+            "title": "Window Installer Needed",
+            "description": "Looking for a window installer to replace old windows.",
+            "created_at": "2024-08-30T12:30:00Z"
+        }
+    },
+    {
+        "model": "jobposts.jobpost",
+        "pk": 11,
+        "fields": {
+            "creator": 2,
+            "contact_num": "0722345678",
+            "title": "Tiler Required",
+            "description": "Need a tiler to retile the bathroom floor.",
+            "created_at": "2024-08-31T08:45:00Z"
+        }
+    },
+    {
+        "model": "jobposts.jobpost",
+        "pk": 12,
+        "fields": {
+            "creator": 2,
+            "contact_num": "0733456789",
+            "title": "Locksmith Needed",
+            "description": "Looking for a locksmith to change door locks.",
+            "created_at": "2024-08-31T13:00:00Z"
+        }
+    },
+    {
+        "model": "jobposts.jobpost",
+        "pk": 13,
+        "fields": {
+            "creator": 2,
+            "contact_num": "0744567890",
+            "title": "Welder Required",
+            "description": "Need a welder to repair metal gates.",
+            "created_at": "2024-09-01T09:30:00Z"
+        }
+    }
+]

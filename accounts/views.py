@@ -85,7 +85,7 @@ class AccountManagementView(TemplateView):
         return context
 
 class PasswordSecurityView(TemplateView, PasswordResetView, SuccessMessageMixin):
-    template_name = "pasword_and_security.html"
+    template_name = "password_and_security.html"
     email_template_name = 'password_reset_email.html'
     subject_template_name = 'password_reset_subject'
     success_message = "We have emailed you. Check your mail !!!"

@@ -6,19 +6,25 @@ from django.views.generic import (
     TemplateView,
     CreateView, 
     DeleteView, 
-    DetailView
+    DetailView,
+    ListView
 )
 from jobposts.forms import JobPostForm
 from jobposts.models import JobPost
 from references.models import Reference
 
 @method_decorator(login_required, name="dispatch")
-class DefaultView(TemplateView):
+class DefaultView(ListView):
+    model = JobPost
     template_name = "index.html"
+    paginate_by = 9
     
     def get_context_data(self, **kwargs) -> dict[str]:
         context = super(DefaultView, self).get_context_data(**kwargs)
-        job_posts = JobPost.objects.all()
+        job_posts_total_qs = JobPost.objects.all()
+        job_posts_total = len(list(job_posts_total_qs))
+        print('Total posts count: ----> ', job_posts_total)
+        job_posts = context['object_list']
         current_user = self.request.user
         for post in job_posts:
             creator = post.creator
