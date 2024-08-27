@@ -23,7 +23,6 @@ class DefaultView(ListView):
         context = super(DefaultView, self).get_context_data(**kwargs)
         job_posts_total_qs = JobPost.objects.all()
         job_posts_total = len(list(job_posts_total_qs))
-        print('Total posts count: ----> ', job_posts_total)
         job_posts = context['object_list']
         current_user = self.request.user
         for post in job_posts:
@@ -32,6 +31,7 @@ class DefaultView(ListView):
             context['creator'] = creator
         context["posts"] = job_posts
         context["current_user"] = current_user
+        context["total_posts"] = job_posts_total
         return context
     
 @method_decorator(login_required, name="dispatch")

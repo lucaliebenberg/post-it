@@ -51,17 +51,17 @@
             <!-- Navbar [end] -->
 
             <!-- Job postings [start] -->
-                    <div class='bg-white flex flex-row gap-4 m-auto pb-4 md:m-0 md:w-full md:flex-row md:justify-start md:flex-wrap md:gap-4'>
+                    <div class='bg-white flex flex-row gap-4 m-auto pb-4 md:m-0 md:pb-4 md:w-full md:flex-row md:justify-start md:flex-wrap md:gap-4'>
                         <div class='w-auto md:w-auto md:flex-row md:justify-start md:flex-wrap md:gap-4m'>
                             <div class="pt-4 md:justify-start md:p-2">
-                                <div class="stat-title mt-0 pt-0 md:pl-2">Posts on page: {{ posts.count }} [{{posts}}]</div>
+                                <div class="stat-title mt-0 pt-0 mb-2 md:pl-2">Posts on page: {{ posts.count }} [{{total_posts}}]</div>
                             </div>
                             {% if posts == 0 %}
                                 <h4 class='font-sans text-[1.4rem] text-white md:mt-0 md:pt-0'>There are currently no job postings!</h4>
                             {% endif %}
 
                             {% if posts %}
-                                <div class='w-auto h-auto flex flex-col gap-2 md:w-full md:flex-row md:justify-start md:flex-wrap md:gap-4 md:p-[1rem]'>
+                                <div class='w-auto h-auto flex flex-col gap-2 md:pb-6 md:w-full md:flex-row md:justify-start md:flex-wrap md:gap-4 md:p-[1rem]'>
                                     {% for post in posts %}
                                 <!-- New Post [start] -->
                                         <a href="{% url 'jobposts:detail_jobpost' pk=post.pk %}" class=''>
@@ -95,13 +95,7 @@
             </div>
 <!-- Parent container [end]  -->
  <!-- Footer pagination [start] -->
-            <div class='bg-[#23237E] text-white flex flex-row justify-center align-middle m-auto w-[100%]'>
-                <!-- {% if page_obj.has_previous %}
-                    <a href="?page={{page_obj.previous_page_number}}"
-                       class="btn btn-secondary mx-2">Previous</a>
-                {% endif %} -->
-
-                <!-- <a href="?page=1" class="btn btn-secondary">First</a> -->
+            <div class='bg-[#23237E] text-white flex flex-row justify-center align-middle m-auto w-[100%] md:z-10'>
 
                 {% for num in page_obj.paginator.page_range %}
                     {% if num == page_obj.number %}
@@ -112,18 +106,6 @@
                         </a>
                     {% endif %}
                 {% endfor %}
-
-                <!-- <a href="?page={{page_obj.paginator.num_pages}}"
-                   class="btn btn-secondary mx-2">
-                    Last
-                </a> -->
-
-                <!-- {% if page.has_next %}
-                    <a href="?page={{page_obj.next_page_number}}"
-                       class="btn btn-secondary mx-2">
-                        Next
-                    </a>
-                {% endif %} -->
             </div>
             <!-- Footer pagination [end] -->
         </body>

@@ -7,11 +7,23 @@ venv
 
 # pycache
 accounts/__pycache__/
+accounts/__pycache__/views.cpython-312.pyc
+accounts/__pycache__/urls.cpython-312.pyc
 authors/__pycache__/
+authors/__pycache__/views.cpython-312.pyc
+authors/__pycache__/urls.cpython-312.pyc
 jobposts/__pycache__/
+jobposts/__pycache__/views.cpython-312.pyc
+jobposts/__pycache__/urls.cpython-312.pyc
 postms/__pycache__/
-postms/templatetags/__pycache__/
+postms/__pycache__/views.cpython-312.pyc
+postms/__pycache__/urls.cpython-312.pyc
 references/__pycache__/
+references/__pycache__/views.cpython-312.pyc
+references/__pycache__/urls.cpython-312.pyc
+postms/templatetags/__pycache__/
+postms/templatetags/__pycache__/permission_filter.cpython-312.pyc
+
 
 # migrations
 accounts/migrations/*

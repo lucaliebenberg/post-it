@@ -26,6 +26,14 @@ class JobPost(models.Model):
         null=False,
         blank=False,
     )
+    image = models.ImageField(
+        "post creator image",
+        upload_to="media/",
+        height_field=None,
+        max_length=100,
+        null=True,
+        blank=True
+    )
     created_at = models.DateTimeField(
         "date posted",
         editable=False,
