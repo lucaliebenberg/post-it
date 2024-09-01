@@ -24,17 +24,6 @@
         <ul>
           <li class=''>
             <a href="{% url 'index' %}">
-              <!-- <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                class="h-4 w-4 stroke-current mr-1">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
-              </svg> -->
               <span class='mr-2'>
                 «
               </span>
@@ -59,47 +48,45 @@
               alt="{{ post.creator }}"
               class="rounded-xl" />
           </figure>
-          <div class="card-body items-start text-left">
-            <h2 class="card-title">{{ post.creator }}</h2>
-            <p>{{ post.title }}</p>
-            <p>{{ post.description }}</p>
-            <div class="badge badge-primary">{{ post.created_at }}</div>
-            <div>
-              {% if references %}
+          <div class='w-auto md:flex md:m-auto'>
+            <div class="card-body items-start text-left md:w-full">
+              <h2 class="card-title">{{ post.creator }}</h2>
+              <p>{{ post.title }}</p>
+              <p>{{ post.description }}</p>
+              <div class="badge badge-primary">{{ post.created_at }}</div>
+              <div>
+                {% if references %}
+                  {% for r in references %}
+                    {% if user|check_reference_jobpost_creator:post %}
+                      <div class='flex flex-row justify-between align-middle gap-4'>
+                        <p class='text-sm text-black'><strong>Reference:</strong></p>
+                        <p class='text-sm text-black'>{{ r.name }}</p>
+                        <p class='text-sm text-black'>{{ r.number }}</p>
+                      </div>
+                    {% else %}
+                      <p class='text-sm text-black'>No references have been added</p>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
 
-                {% for r in references %}
-                  {% if user|check_reference_jobpost_creator:post %}
-                    <div class='flex flex-row justify-between align-middle gap-4'>
-                      <p class='text-sm text-black'><strong>Reference:</strong></p>
-                      <p class='text-sm text-black'>{{ r.name }}</p>
-                      <p class='text-sm text-black'>{{ r.number }}</p>
-                    </div>
-                  {% else %}
-                    <p class='text-sm text-black'>No references have been added</p>
-                  {% endif %}
-                {% endfor %}
+                {% if references == 0 %}
+                  <p class='text-sm text-black'>No references have been added</p>
+                {% endif %}
+
+              </div>
+              <div class="card-actions w-full">
+                <button class="btn btn-primary w-full">Contact Now</button>
+              </div>
+              {% if user|is_post_author:post %}
+                <button class="btn btn-error w-full">
+                  <a href="{% url 'jobposts:delete_jobpost' pk=post.pk %}" class='w-full'>Delete</a>
+                </button>
               {% endif %}
-
-              {% if references == 0 %}
-                <p class='text-sm text-black'>No references have been added</p>
-              {% endif %}
-
             </div>
-            <div class="card-actions w-full">
-              <button class="btn btn-primary w-full">Contact Now</button>
-            </div>
-            {% if user|is_post_author:post %}
-              <button class="btn btn-error w-full">
-                <a href="{% url 'jobposts:delete_jobpost' pk=post.pk %}" class='w-full'>Delete</a>
-              </button>
-            {% endif %}
           </div>
         </div>
             <!--  -->
         <div>
-          <!-- {% if user|is_post_author:post %}
-            <a href="{% url 'jobposts:delete_jobpost' pk=post.pk %}" style='background-color: red; color: black; padding: 4px; border-radius: 4px; color: white; text-decoration: none;'>Delete</a>
-          {% endif %} -->
         </div>
       </form>
     </div>

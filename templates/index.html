@@ -32,6 +32,9 @@
                                     <a href='{% url "jobposts:create_jobpost" pk=post.pk %}' class='no-underline text-white p-2 w-auto flex m-auto'> + Post It</a>
                                 </button>
                             {% endif %}
+                            <div class='p-4'>
+                                <a href="{% url 'index' %}" class='text-white text-[1.4rem] font-bold'>Post It</a>
+                            </div>
                             <a
                                 id="account-menu"
                                 href="{% url 'accounts:account_menu' %}"

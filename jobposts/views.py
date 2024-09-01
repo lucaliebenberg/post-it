@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
 from django.views.generic import (
-    TemplateView,
     CreateView, 
     DeleteView, 
     DetailView,
@@ -39,7 +38,7 @@ class CreateJobPost(CreateView):
     model = JobPost
     form_class = JobPostForm
     template_name = "create_jobpost.html"
-    success_url = reverse_lazy("index")
+    success_url = "index"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -60,7 +59,7 @@ class CreateJobPost(CreateView):
             name=form.cleaned_data['reference_name_2'],
             number=form.cleaned_data['reference_number_2']
         )
-        return HttpResponseRedirect(reverse_lazy("index"))
+        return HttpResponseRedirect("index")
     
 class CreateReference(CreateView):
     model = Reference
