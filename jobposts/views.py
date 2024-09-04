@@ -38,11 +38,13 @@ class CreateJobPost(CreateView):
     model = JobPost
     form_class = JobPostForm
     template_name = "create_jobpost.html"
-    success_url = "index"
+    success_url = reverse_lazy("index")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         post = self.get_object()
+        print('Job Post ---> ', post)
+        print('Job Post pk ---> ', post.pk)
         context['post'] = post
         return context
     
@@ -68,7 +70,7 @@ class CreateReference(CreateView):
         "name",
         "number"
     )
-    success_url = reverse_lazy("index")
+    success_url = reverse("index")
 
 
 @method_decorator(login_required, name="dispatch")

@@ -10,8 +10,7 @@ from jobposts.views import (
 app_name = "jobposts"
 
 urlpatterns = [
-    path('create/<int:pk>/', CreateJobPost.as_view(), name="create_jobpost"),    
-    # path('create/', CreateJobPost.as_view(), name="create_jobpost"),    
+    path('create/<int:pk>/', CreateJobPost.as_view(), name="create_jobpost"),     
     path('reference/', CreateReference.as_view(), name="create_reference"),    
     path('delete/<int:pk>/', DeleteJobPost.as_view(), name="delete_jobpost"),
     path('detail/<int:pk>/', DetailView.as_view(), name="detail_jobpost"),    
