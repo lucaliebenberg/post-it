@@ -1,4 +1,4 @@
-from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
@@ -70,7 +70,7 @@ class CreateReference(CreateView):
         "name",
         "number"
     )
-    success_url = reverse("index")
+    success_url = reverse_lazy("index")
 
 
 @method_decorator(login_required, name="dispatch")
