@@ -29,7 +29,7 @@
                         <div class='flex flex-row justify-between w-auto'>
                             {% if current_user|check_user_total_posts:user %}
                                 <button class='bg-cyan-400 text-black p-1 rounded-md w-auto mb-3'>
-                                    <a href='{% url "jobposts:create_jobpost" pk=post.pk %}' class='no-underline text-white p-2 w-auto flex m-auto'> + Post It</a>
+                                    <a href='{% url "jobposts:create_jobpost" %}' class='no-underline text-white p-2 w-auto flex m-auto'> + Post It</a>
                                 </button>
                             {% endif %}
                             <div class='p-4'>
