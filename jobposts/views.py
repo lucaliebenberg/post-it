@@ -40,13 +40,13 @@ class CreateJobPost(CreateView):
     template_name = "create_jobpost.html"
     success_url = reverse_lazy("index")
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        post = self.get_object()
-        print('Job Post ---> ', post)
-        print('Job Post pk ---> ', post.pk)
-        context['post'] = post
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     post = self.get_object()
+    #     print('Job Post ---> ', post)
+    #     print('Job Post pk ---> ', post.pk)
+    #     context['post'] = post
+    #     return context
     
     def form_valid(self, form):
         form.instance.creator = self.request.user
@@ -61,7 +61,7 @@ class CreateJobPost(CreateView):
             name=form.cleaned_data['reference_name_2'],
             number=form.cleaned_data['reference_number_2']
         )
-        return HttpResponseRedirect("index")
+        return HttpResponseRedirect(self.get_success_url())
     
 class CreateReference(CreateView):
     model = Reference
