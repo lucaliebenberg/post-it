@@ -65,15 +65,6 @@ class CreateJobPost(CreateView):
         # )
         return HttpResponseRedirect(self.get_success_url())
     
-class CreateReference(CreateView):
-    model = Reference
-    template_name = "create_jobpost.html"
-    fields = (
-        "name",
-        "number"
-    )
-    success_url = reverse_lazy("index")
-
 
 @method_decorator(login_required, name="dispatch")
 class DetailView(DetailView):
@@ -108,6 +99,29 @@ class DeleteJobPost(DeleteView):
         context['post'] = post
         return context
     
+
+@method_decorator(login_required, name="dispatch")
 class UpdateJobPost(UpdateView):
     model = JobPost
     template_name = "update_jobpost.html"
+    fields = (
+        "contact_num",
+        "title",
+        "description",
+        "image"
+    )
+    pk_url_kwarg = "pk"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.get_object
+        context['post'] = post
+        return context
+    
+    def form_valid(self, form):
+        self.object = form.save()
+
+        return HttpResponseRedirect(
+            "jobposts:detail_jobpost", kwargs={"pk": self.get_object.pk}
+        )
+

@@ -42,7 +42,13 @@
           {% for error in field.errors %}
             <span class='help-block'>{{ error }}</span>
           {% endfor %}
-          
+
+          <!-- edit post action btn [start] -->
+          <div>
+            <a href="{% url 'jobposts:update_jobpost' pk=post.pk %}" class='w-full'>Edit</a>
+          </div>
+          <!-- edit post action btn [end] -->
+
           <div class='w-100% h-auto ml-auto mr-auto flex justify-center'>
             {% if post.image %}
               <figure class='px-4 pt-10 h-auto'>
