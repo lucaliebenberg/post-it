@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import (
     CreateView, 
     DeleteView, 
@@ -119,9 +119,17 @@ class UpdateJobPost(UpdateView):
         return context
     
     def form_valid(self, form):
+        post = self.get_object
+        print('post to update ---> ', post)
         self.object = form.save()
-
+        # return HttpResponseRedirect(
+        #     reverse(
+        #         "jobposts:detail_jobpost", args=[post.id]
+        #     )
+        # )
         return HttpResponseRedirect(
-            "jobposts:detail_jobpost", kwargs={"pk": self.get_object.pk}
+            reverse(
+                "index"
+            )
         )
 
