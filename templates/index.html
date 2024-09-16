@@ -69,12 +69,22 @@
                                 <!-- New Post [start] -->
                                         <a href="{% url 'jobposts:detail_jobpost' pk=post.pk %}" class=''>
                                             <div class="card card-side bg-base-100 shadow-xl md:w-[31vw]">
-                                                <figure class='w-[30vw] h-auto md:w-[10vw]'>
+                                                {% if post.image %}
+                                                    <figure class='w-[30vw] h-auto md:w-[10vw]'>
+                                                        <img
+                                                            src=""
+                                                            alt="{{ post.creator}}" />
+                                                    </figure>
+                                                {% else %}
+                                                    <figure class='w-[30vw] h-auto md:w-[10vw] bg-gray-300'>
+                                                    </figure>
+                                                {% endif %}
+                                                <!-- <figure class='w-[30vw] h-auto md:w-[10vw]'>
                                                     <img
                                                         src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
                                                         class=''
                                                         alt="{{ post.creator}}" />
-                                                </figure>
+                                                </figure> -->
                                                 <div class="card-body">
                                                     <h2 class="card-title">
                                                         {{ post.creator }}

@@ -51,16 +51,17 @@ class CreateJobPost(CreateView):
     def form_valid(self, form):
         form.instance.creator = self.request.user
         self.object = form.save()
+        print('cleaned form data ---> ', form.cleaned_data)
         Reference.objects.create(
             job_post=self.object,
             name=form.cleaned_data['reference_name_1'],
             number=form.cleaned_data['reference_number_1']
         )
-        Reference.objects.create(
-            job_post=self.object,
-            name=form.cleaned_data['reference_name_2'],
-            number=form.cleaned_data['reference_number_2']
-        )
+        # Reference.objects.create(
+        #     job_post=self.object,
+        #     name=form.cleaned_data['reference_name_2'],
+        #     number=form.cleaned_data['reference_number_2']
+        # )
         return HttpResponseRedirect(self.get_success_url())
     
 class CreateReference(CreateView):
