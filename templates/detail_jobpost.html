@@ -42,12 +42,22 @@
           {% for error in field.errors %}
             <span class='help-block'>{{ error }}</span>
           {% endfor %}
-          <figure class="px-10 pt-10">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-              alt="{{ post.creator }}"
-              class="rounded-xl" />
-          </figure>
+          
+          <div class='w-100% h-auto ml-auto mr-auto flex justify-center'>
+            {% if post.image %}
+              <figure class='px-4 pt-10 h-auto'>
+                <img
+                  src="{{ post.image.url }}"
+                  alt="{{ post.creator}}"
+                  class='rounded-xl'
+                />
+              </figure>
+            {% else %}
+              <figure class='w-[30vw] h-[22vh] md:w-[10vw] bg-gray-300 rounded-xl'>
+              </figure>
+            {% endif %}
+          </div>
+
           <div class='w-auto md:flex md:m-auto'>
             <div class="card-body items-start text-left md:w-full">
               <h2 class="card-title">{{ post.creator }}</h2>

@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView, 
     DeleteView, 
+    UpdateView,
     DetailView,
     ListView
 )
@@ -106,3 +107,7 @@ class DeleteJobPost(DeleteView):
         post = self.get_object
         context['post'] = post
         return context
+    
+class UpdateJobPost(UpdateView):
+    model = JobPost
+    template_name = "update_jobpost.html"
