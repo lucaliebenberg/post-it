@@ -58,11 +58,11 @@ class CreateJobPost(CreateView):
             name=form.cleaned_data['reference_name_1'],
             number=form.cleaned_data['reference_number_1']
         )
-        # Reference.objects.create(
-        #     job_post=self.object,
-        #     name=form.cleaned_data['reference_name_2'],
-        #     number=form.cleaned_data['reference_number_2']
-        # )
+        Reference.objects.create(
+            job_post=self.object,
+            name=form.cleaned_data['reference_name_2'],
+            number=form.cleaned_data['reference_number_2']
+        )
         return HttpResponseRedirect(self.get_success_url())
     
 
@@ -89,9 +89,6 @@ class DeleteJobPost(DeleteView):
     template_name = "delete_jobpost.html"
     fields = '__all__'
     success_url = reverse_lazy("index")
-
-    def form_valid(self, form):
-        return super().form_valid(form)
     
     def get_context_data(self, **kwargs) -> dict[str]:
         context =  super().get_context_data(**kwargs)
@@ -99,6 +96,9 @@ class DeleteJobPost(DeleteView):
         context['post'] = post
         return context
     
+    def form_valid(self, form):
+        form = super().form_valid(form)
+        return form
 
 @method_decorator(login_required, name="dispatch")
 class UpdateJobPost(UpdateView):

@@ -4,15 +4,33 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+        <script src="semantic/dist/semantic.min.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
         <title>Delete Job Post</title>
     </head>
     <body>
-        <h1>Deletion Confirmation</h1>
-        <form method='post'>
+        <form method='post' class='w-auto h-[100vh] flex justify-center align-middle m-auto p-1'>
             {% csrf_token %}
-            <p>Are you sure you want to delete your post: {{ post.title }}?</p>
-            <input type="submit" value="Confirm">
-            <a href="{% url 'index' %}">Cancel</a>
+            <div class="card bg-base-100 w-95 shadow-xl mt-auto mb-auto">
+                <div class='card-body'>
+                    <h1 class="card-title">Deletion Confirmation</h1>
+                    <p class='mb-2 text-gray-400'>Are you sure you want to delete your post: {{ post.title }}?</p>
+
+                    <div class="card-actions justify-start mt-4">
+                        <a class="btn btn-ghost" href="{% url 'index' %}">Cancel</a>
+                        <button class="btn bg-[#18181B] text-white" type="submit">Confirm</button>
+                    </div>
+                </div>
+            </div>
+            <!-- <input type="submit" value="Confirm"> -->
+            <!-- <a href="{% url 'index' %}">Cancel</a> -->
         </form>
     </body>
 </html>
