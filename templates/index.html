@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load permission_filter %}
+{% load static %}
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -72,7 +73,7 @@
                                                 {% if post.image %}
                                                     <figure class='w-[30vw] h-auto md:w-[10vw]'>
                                                         <img
-                                                            src=""
+                                                            src="{{ post.image.url }}"
                                                             alt="{{ post.creator}}" />
                                                     </figure>
                                                 {% else %}
