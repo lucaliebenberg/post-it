@@ -13,10 +13,10 @@ from accounts.views import (
 app_name = "postms"
 
 # ERROR HANDLERS
-handler400 = "postms.views.handler400"
-handler403 = "postms.views.handler403"
-handler404 = "postms.views.handler404"
-handler500 = "postms.views.handler500"
+# handler400 = "postms.views.handler400"
+# handler403 = "postms.views.handler403"
+# handler404 = "postms.views.handler404"
+# handler500 = "postms.views.handler500"
 
 urlpatterns = [
     # ADMIN
@@ -32,10 +32,13 @@ urlpatterns = [
     path('', DefaultView.as_view(), name="index"),
     path('jobposts/', include("jobposts.urls")),
     path('account/', include("accounts.urls")),
-] + static(settings.MEDIA_URL, document_root=settings.STATIC_ROOT)
+] + static(
+    settings.MEDIA_URL, 
+    document_root=settings.MEDIA_ROOT
+)
 
 
 # PROJECT ADMIN SETTINGS CONFIG
-# admin.site.index.title = "PostIt"
-# admin.site.site_header = "PostIt Admin"
-# admin.site.site_title = "Self Service Job Post Portal"
+admin.site.index_title = "PostIt"
+admin.site.site_header = "PostIt Admin"
+admin.site.site_title = "Self Service Job Post Portal"
