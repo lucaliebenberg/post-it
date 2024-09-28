@@ -37,15 +37,17 @@
       <form method='post' class='overflow-hidden'>
         {% csrf_token %}
 
-            <!-- New  -->
+        <!-- New  -->
         <div class="card bg-base-100 w-[100%] shadow-xl overflow-x-hidden">
           {% for error in field.errors %}
             <span class='help-block'>{{ error }}</span>
           {% endfor %}
 
           <!-- edit post action btn [start] -->
-          <div>
-            <a href="{% url 'jobposts:update_jobpost' pk=post.pk %}" class='w-full'>Edit</a>
+          <div style='background-color: red; display: flex;'>
+            <div style='justify-content: end;'>
+              <a href="{% url 'jobposts:update_jobpost' pk=post.pk %}" class='w-full'>Edit</a>
+            </div>
           </div>
           <!-- edit post action btn [end] -->
 
@@ -101,7 +103,7 @@
             </div>
           </div>
         </div>
-            <!--  -->
+        <!--  -->
         <div>
         </div>
       </form>

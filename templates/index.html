@@ -73,8 +73,8 @@
                                                 {% if post.image %}
                                                     <figure class='w-[30vw] h-auto md:w-[10vw]'>
                                                         <img
-                                                            src="{{ post.image.url }}"
-                                                            alt="{{ post.creator}}" />
+                                                            src="{{ MEDIA_URL }}{{ post.image.url }}"
+                                                            alt="{{ post.creator}} profile image" />
                                                     </figure>
                                                 {% else %}
                                                     <figure class='w-[30vw] h-[22vh] md:w-[10vw] bg-gray-300'>
