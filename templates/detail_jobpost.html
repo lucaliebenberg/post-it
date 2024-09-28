@@ -20,7 +20,7 @@
 
     <div class='w-[100%] min-height-[100vh] flex flex-col justify-center m-auto text-center overflow-x-hidden'>
         <!-- Navigation [start] -->
-      <div class="breadcrumbs text-sm p-10">
+      <div class="breadcrumbs text-sm p-5">
         <ul>
           <li class=''>
             <a href="{% url 'index' %}">
@@ -43,17 +43,14 @@
             <span class='help-block'>{{ error }}</span>
           {% endfor %}
 
-          <!-- edit post action btn [start] -->
-          <div style='background-color: red; display: flex;'>
-            <div style='justify-content: end;'>
-              <a href="{% url 'jobposts:update_jobpost' pk=post.pk %}" class='w-full'>Edit</a>
-            </div>
-          </div>
-          <!-- edit post action btn [end] -->
-
           <div class='w-100% h-auto ml-auto mr-auto flex justify-center'>
             {% if post.image %}
-              <figure class='px-4 pt-10 h-auto'>
+              <figure class='px-4 pt-10 h-auto relative'>
+                <div class='bg-red-500 flex absolute top-0 right-0 p-1 rounded-lg mr-5'>
+                  <div>
+                    <a href="{% url 'jobposts:update_jobpost' pk=post.pk %}" class='w-full'>Edit</a>
+                  </div>
+                </div>
                 <img
                   src="{{ post.image.url }}"
                   alt="{{ post.creator}}"

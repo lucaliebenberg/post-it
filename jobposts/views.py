@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy, reverse
+from django.contrib.auth import get_user_model
 from django.views.generic import (
     CreateView, 
     DeleteView, 
@@ -12,6 +13,9 @@ from django.views.generic import (
 from jobposts.forms import JobPostForm
 from jobposts.models import JobPost
 from references.models import Reference
+from accounts.models import User
+
+UserModel = get_user_model()
 
 @method_decorator(login_required, name="dispatch")
 class DefaultView(ListView):
@@ -25,6 +29,13 @@ class DefaultView(ListView):
         job_posts_total = len(list(job_posts_total_qs))
         job_posts = context['object_list']
         current_user = self.request.user
+        try:
+            user = User.objects.get(username=current_user.username)
+            print(f'Got user >>>> { user.username }, { user.email } <<<<')
+            # user_post = 
+        except UserModel.DoesNotExist:
+            print('Could not find the user')   
+        user = User.objects.get()
         for post in job_posts:
             creator = post.creator
             context['post'] = post

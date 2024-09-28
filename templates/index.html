@@ -19,7 +19,7 @@
     <body class='m-0 p-0'>
 
     <!-- Parent Container -->
-        <div class='flex flex-col h-auto w-[100%] bg-purple-500 font-sans md:overflow-y-hidden'>
+        <div class='flex flex-col min-h-[100vh] md:h-auto w-[100%] bg-white font-sans md:overflow-y-hidden'>
 
     <!-- Main [start] -->
             <div class='bg-white basis-[80%] h-atuo md:min-h-[80vh] w-[100%]'>
@@ -41,7 +41,7 @@
                                 href="{% url 'accounts:account_menu' %}"
                                 class='no-underline flex align-middle'
                             >
-                                <div class="avatar online mb-2">
+                                <div class="avatar mb-2">
                                     <div class="w-14 rounded-full">
                                         <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                                     </div>
@@ -103,7 +103,7 @@
             </div>
 <!-- Parent container [end]  -->
  <!-- Footer pagination [start] -->
-            <div class='bg-[#23237E] text-white flex flex-row justify-center align-middle m-auto w-[100%] md:z-10'>
+            <div class='bg-[#23237E] text-white flex flex-row justify-center align-middle m-auto w-[100%] mt-[22rem] md:mt-auto md:z-10'>
 
                 {% for num in page_obj.paginator.page_range %}
                     {% if num == page_obj.number %}
