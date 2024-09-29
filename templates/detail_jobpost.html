@@ -45,11 +45,12 @@
 
           <div class='w-100% h-auto ml-auto mr-auto flex justify-center'>
             {% if post.image %}
-              <figure class='px-4 pt-10 h-auto relative'>
-                <div class='bg-red-500 flex absolute top-0 right-0 p-1 rounded-lg mr-5'>
-                  <div>
+              <figure class='px-4 pt-10 h-auto relative md:w-[40%] md:h-auto'>
+                <div class='bg-white absolute left-0 top-0 pl-5 pt-1'>
+                  <div class="badge badge-primary">{{ post.created_at }}</div>
+                </div>
+                <div class='bg-gray-100 absolute flex flex-row justify-between top-0 right-0 p-1 rounded-lg mr-5'>
                     <a href="{% url 'jobposts:update_jobpost' pk=post.pk %}" class='w-full'>Edit</a>
-                  </div>
                 </div>
                 <img
                   src="{{ post.image.url }}"
@@ -68,7 +69,6 @@
               <h2 class="card-title">{{ post.creator }}</h2>
               <p>{{ post.title }}</p>
               <p>{{ post.description }}</p>
-              <div class="badge badge-primary">{{ post.created_at }}</div>
               <div>
                 {% if references %}
                   {% for r in references %}
