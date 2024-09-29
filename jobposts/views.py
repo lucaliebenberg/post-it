@@ -30,12 +30,14 @@ class DefaultView(ListView):
         job_posts = context['object_list']
         current_user = self.request.user
         try:
-            user = User.objects.get(username=current_user.username)
-            print(f'Got user >>>> { user.username }, { user.email } <<<<')
-            # user_post = 
+            user = User.objects.all().filter(id=current_user.id)
+            # print(f'Got user >>>> { user.id }, { user.email } <<<<')
+            print(f'Got user >>>> { user } <<<<')
+            # user_jobpost = Jobposts.objects.all().filter(creator=user)
+            # print(f'Got user jobpost >>>> { jobpost.title } by { jobpost.creator } <<<<')
         except UserModel.DoesNotExist:
             print('Could not find the user')   
-        user = User.objects.get()
+        # user = User.objects.get()
         for post in job_posts:
             creator = post.creator
             context['post'] = post
