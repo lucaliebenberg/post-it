@@ -183,7 +183,4 @@ Windows
 - **Database:** Default is PostgreSQL. For production, configure the database settings in `postit/settings.py`.
 - **Static files:** Collect static files using `python manage.py collectstatic`.
 
-## Feel free to contribute and open PR's :
-
-Ideation board <br/> 
-https://www.figma.com/board/Jb9WCXvCkIHV0mGRlaqA96/PostIt---Ideation-Space?node-id=0-1&t=s4LQHB0vwWZCUu8w-0 
+## Feel free to contribute and open PR's
