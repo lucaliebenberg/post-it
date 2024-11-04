@@ -2,30 +2,7 @@
 
 PostIt is a Django-based web application for creating and managing posts, aimed at helping those who hand out job slips at traffic robots in South Africa by providing a self-service platform to share their slips. Users can create, edit, delete their own posts, and view everyone's posts.
 
-Project state -> In Development.
-
-## Table of Contents
-- [Description](#description)
-- [Features](#features)
-- [Installation](#installation)
-  - [Prerequisites](#prerequisites)
-  - [Setup](#setup)
-    - [Mac/Linux](#maclinux)
-    - [Windows](#windows)
-    - [Installing Django, Pip, and PostgreSQL](#installing-django-pip-and-postgresql)
-- [Usage](#usage)
-  - [Creating a Post](#creating-a-post)
-  - [Editing a Post](#editing-a-post)
-  - [Deleting a Post](#deleting-a-post)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Description
-A community project aimed at helping those who hand out job slips at traffic robots by providing a self-service platform to share their slips.
-
-## Features
-- Create, read, update, and delete (CRUD) operations for job posts (with permission restrictions)
+Project state -> In Product Development.
 
 ## Installation
 
